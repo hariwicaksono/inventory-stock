@@ -4,18 +4,24 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Manage
-        <small>Company</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">company</li>
-      </ol>
+    <div class="container-fluid px-3">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-1 text-dark">Manage <small>Perusahaan</small></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item active">Master Perusahaan</li>
+          </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
     <section class="content">
+    <div class="container-fluid px-3 pb-3">
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-md-12 col-xs-12">
@@ -34,7 +40,7 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Manage Company Information</h3>
+              <h3 class="box-title">Informasi Perusahaan</h3>
             </div>
             <form role="form" action="<?php base_url('company/update') ?>" method="post">
               <div class="box-body">
@@ -42,40 +48,40 @@
                 <?php echo validation_errors(); ?>
 
                 <div class="form-group">
-                  <label for="company_name">Company Name</label>
-                  <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Enter company name" value="<?php echo $company_data['company_name'] ?>" autocomplete="off">
+                  <label for="company_name">Nama Perusahaan</label>
+                  <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Masukkan nama perusahaan" value="<?php echo $company_data['company_name'] ?>" autocomplete="off">
                 </div>
                 <div class="form-group">
-                  <label for="service_charge_value">Charge Amount (%)</label>
-                  <input type="text" class="form-control" id="service_charge_value" name="service_charge_value" placeholder="Enter charge amount %" value="<?php echo $company_data['service_charge_value'] ?>" autocomplete="off">
+                  <label for="service_charge_value">Jumlah biaya (%)</label>
+                  <input type="text" class="form-control" id="service_charge_value" name="service_charge_value" placeholder="Masukkan jumlah tagihan %" value="<?php echo $company_data['service_charge_value'] ?>" autocomplete="off">
                 </div>
                 <div class="form-group">
-                  <label for="vat_charge_value">Vat Charge (%)</label>
-                  <input type="text" class="form-control" id="vat_charge_value" name="vat_charge_value" placeholder="Enter vat charge %" value="<?php echo $company_data['vat_charge_value'] ?>" autocomplete="off">
+                  <label for="vat_charge_value">Biaya PPN (%)</label>
+                  <input type="text" class="form-control" id="vat_charge_value" name="vat_charge_value" placeholder="Masukkan biaya PPN%" value="<?php echo $company_data['vat_charge_value'] ?>" autocomplete="off">
                 </div>
                 <div class="form-group">
-                  <label for="address">Address</label>
-                  <input type="text" class="form-control" id="address" name="address" placeholder="Enter address" value="<?php echo $company_data['address'] ?>" autocomplete="off">
+                  <label for="address">Alamat</label>
+                  <input type="text" class="form-control" id="address" name="address" placeholder="Masukkan alamat" value="<?php echo $company_data['address'] ?>" autocomplete="off">
                 </div>
                 <div class="form-group">
-                  <label for="phone">Phone</label>
-                  <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" value="<?php echo $company_data['phone'] ?>" autocomplete="off">
+                  <label for="phone">Telepon</label>
+                  <input type="text" class="form-control" id="phone" name="phone" placeholder="Masukkan telepon" value="<?php echo $company_data['phone'] ?>" autocomplete="off">
                 </div>
                 <div class="form-group">
-                  <label for="country">Country</label>
-                  <input type="text" class="form-control" id="country" name="country" placeholder="Enter country" value="<?php echo $company_data['country'] ?>" autocomplete="off">
+                  <label for="country">Negara</label>
+                  <input type="text" class="form-control" id="country" name="country" placeholder="Masukkan negara" value="<?php echo $company_data['country'] ?>" autocomplete="off">
                 </div>
                 <div class="form-group">
-                  <label for="permission">Message</label>
-                  <textarea class="form-control" id="message" name="message">
+                  <label for="permission">Pesan</label>
+                  <textarea class="textarea" name="message" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                      <?php echo $company_data['message'] ?>
                   </textarea>
                 </div>
                 <div class="form-group">
-                  <label for="currency">Currency</label>
+                  <label for="currency">Mata uang</label>
                   <?php ?>
                   <select class="form-control" id="currency" name="currency">
-                    <option value="">~~SELECT~~</option>
+                    <option value="">--Pilih--</option>
 
                     <?php foreach ($currency_symbols as $k => $v): ?>
                       <option value="<?php echo trim($k); ?>" <?php if($company_data['currency'] == $k) {
@@ -89,7 +95,7 @@
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
               </div>
             </form>
           </div>
@@ -99,7 +105,7 @@
       </div>
       <!-- /.row -->
       
-
+    </div>
     </section>
     <!-- /.content -->
   </div>
@@ -110,5 +116,11 @@
     $("#companyNav").addClass('active');
     $("#message").wysihtml5();
   });
+</script>
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
 </script>
 

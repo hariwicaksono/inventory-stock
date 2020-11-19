@@ -4,18 +4,24 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>
-      Manage
-      <small>Brands</small>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Brands</li>
-    </ol>
+  <div class="container-fluid px-3">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-1 text-dark">Manage <small>Merek</small></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item active">Master Merek</li>
+          </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
   </section>
 
   <!-- Main content -->
   <section class="content">
+  <div class="container-fluid px-3 pb-3">
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-md-12 col-xs-12">
@@ -34,24 +40,23 @@
           </div>
         <?php endif; ?>
 
-        <?php if(in_array('createBrand', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addBrandModal">Add Brand</button>
-          <br /> <br />
-        <?php endif; ?>
+        
 
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Manage Brands</h3>
+          <?php if(in_array('createBrand', $user_permission)): ?>
+          <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addBrandModal">Tambah Merek</button>
+        <?php endif; ?>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Brand Name</th>
+                <th>Nama Merek</th>
                 <th>Status</th>
                 <?php if(in_array('updateBrand', $user_permission) || in_array('deleteBrand', $user_permission)): ?>
-                  <th>Action</th>
+                  <th>Aksi</th>
                 <?php endif; ?>
               </tr>
               </thead>
@@ -66,7 +71,7 @@
     </div>
     <!-- /.row -->
     
-
+</div>
   </section>
   <!-- /.content -->
 </div>
@@ -78,8 +83,10 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add Brand</h4>
+        <h4 class="modal-title">Tambah Merek</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
       </div>
 
       <form role="form" action="<?php echo base_url('brands/create') ?>" method="post" id="createBrandForm">
@@ -87,21 +94,21 @@
         <div class="modal-body">
 
           <div class="form-group">
-            <label for="brand_name">Brand Name</label>
-            <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Enter brand name" autocomplete="off">
+            <label for="brand_name">Nama Merek</label>
+            <input type="text" class="form-control" id="brand_name" name="brand_name" placeholder="Masukkan nama merek" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="active">Status</label>
             <select class="form-control" id="active" name="active">
-              <option value="1">Active</option>
-              <option value="2">Inactive</option>
+              <option value="1">Aktif</option>
+              <option value="2">Tidak Aktif</option>
             </select>
           </div>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
 
       </form>
@@ -118,8 +125,10 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Edit Brand</h4>
+        <h4 class="modal-title">Edit Merek</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
       </div>
 
       <form role="form" action="<?php echo base_url('brands/update') ?>" method="post" id="updateBrandForm">
@@ -128,21 +137,21 @@
           <div id="messages"></div>
 
           <div class="form-group">
-            <label for="edit_brand_name">Brand Name</label>
-            <input type="text" class="form-control" id="edit_brand_name" name="edit_brand_name" placeholder="Enter brand name" autocomplete="off">
+            <label for="edit_brand_name">Nama Merek</label>
+            <input type="text" class="form-control" id="edit_brand_name" name="edit_brand_name" placeholder="Masukkan nama merek" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="edit_active">Status</label>
             <select class="form-control" id="edit_active" name="edit_active">
-              <option value="1">Active</option>
-              <option value="2">Inactive</option>
+              <option value="1">Aktif</option>
+              <option value="2">Tidak Aktif</option>
             </select>
           </div>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
 
       </form>
@@ -159,17 +168,19 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Remove Brand</h4>
+        <h4 class="modal-title">Hapus Merek</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
       </div>
 
       <form role="form" action="<?php echo base_url('brands/remove') ?>" method="post" id="removeBrandForm">
         <div class="modal-body">
-          <p>Do you really want to remove?</p>
+          <p>Apakah Anda benar-benar ingin menghapus?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Oke</button>
         </div>
       </form>
 
@@ -213,7 +224,7 @@ $(document).ready(function() {
         if(response.success === true) {
           $("#messages").html('<div class="alert alert-success alert-dismissible" role="alert">'+
             '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-            '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+response.messages+
+            '<strong> <i class="fas fa-check-circle"></i> </strong>'+response.messages+
           '</div>');
 
 
@@ -241,7 +252,7 @@ $(document).ready(function() {
           } else {
             $("#messages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
               '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-              '<strong> <span class="glyphicon glyphicon-exclamation-sign"></span> </strong>'+response.messages+
+              '<strong> <i class="fas fa-exclamation-circle"></i> </strong>'+response.messages+
             '</div>');
           }
         }
@@ -284,7 +295,7 @@ function editBrand(id)
             if(response.success === true) {
               $("#messages").html('<div class="alert alert-success alert-dismissible" role="alert">'+
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-                '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+response.messages+
+                '<strong> <i class="fas fa-check-circle"></i> </strong>'+response.messages+
               '</div>');
 
 
@@ -310,7 +321,7 @@ function editBrand(id)
               } else {
                 $("#messages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
                   '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-                  '<strong> <span class="glyphicon glyphicon-exclamation-sign"></span> </strong>'+response.messages+
+                  '<strong> <i class="fas fa-exclamation-circle"></i> </strong>'+response.messages+
                 '</div>');
               }
             }
@@ -346,7 +357,7 @@ function removeBrand(id)
           if(response.success === true) {
             $("#messages").html('<div class="alert alert-success alert-dismissible" role="alert">'+
               '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-              '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+response.messages+
+              '<strong> <i class="fas fa-check-circle"></i> </strong>'+response.messages+
             '</div>');
 
             // hide the modal
@@ -356,7 +367,7 @@ function removeBrand(id)
 
             $("#messages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
               '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-              '<strong> <span class="glyphicon glyphicon-exclamation-sign"></span> </strong>'+response.messages+
+              '<strong> <i class="fas fa-exclamation-circle"></i> </strong>'+response.messages+
             '</div>'); 
           }
         }

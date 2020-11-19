@@ -111,7 +111,7 @@
             <?php if(in_array('createBrand', $user_permission) || in_array('updateBrand', $user_permission) || in_array('viewBrand', $user_permission) || in_array('deleteBrand', $user_permission)): ?>
             <li class="nav-item" id="brandNav">
               <a href="<?php echo base_url('brands/') ?>" class="nav-link">
-              <i class="far fa-circle nav-icon"></i> <span>Brand</span>
+              <i class="far fa-circle nav-icon"></i> <span>Merek</span>
               </a>
             </li>
           <?php endif; ?>

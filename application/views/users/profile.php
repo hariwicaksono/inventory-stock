@@ -2,27 +2,33 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Content Header (Page header) --> 
     <section class="content-header">
-      <h1>
-        User
-        <small>Profile</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Profile</li>
-      </ol>
+    <div class="container-fluid px-3">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-1 text-dark">Profil <small>User</small></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item active">Profil</li>
+          </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
     <section class="content">
+    <div class="container-fluid px-3 pb-3">
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-md-12 col-xs-12">
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Profile XXX</h3>
+              <h3 class="box-title">Profil</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -63,9 +69,8 @@
         </div>
         <!-- col-md-12 -->
       </div>
-      <!-- /.row -->
-      
-
+      <!-- /.row -->  
+    </div>
     </section>
     <!-- /.content -->
   </div>

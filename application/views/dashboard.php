@@ -4,7 +4,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-    <div class="container-fluid">
+    <div class="container-fluid px-3">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 mb-1 text-dark">Dashboard <small>Control panel</small></h1>
@@ -22,7 +22,7 @@
 
     <!-- Main content -->
     <section class="content">
-    <div class="container-fluid">
+    <div class="container-fluid px-3 pb-3">
       <!-- Small boxes (Stat box) -->
       <?php if($is_admin == true): ?>
 
