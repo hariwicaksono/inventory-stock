@@ -10,7 +10,7 @@ class Stores extends Admin_Controller
 
 		$this->not_logged_in();
 
-		$this->data['page_title'] = 'Stores';
+		$this->data['page_title'] = 'Toko';
 
 		$this->load->model('model_stores');
 	}
@@ -56,14 +56,14 @@ class Stores extends Admin_Controller
 			$buttons = '';
 
 			if(in_array('updateStore', $this->permission)) {
-				$buttons = '<button type="button" class="btn btn-default" onclick="editFunc('.$value['id'].')" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil"></i></button>';
+				$buttons = '<button type="button" class="btn btn-default btn-sm" onclick="editFunc('.$value['id'].')" data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></button>';
 			}
 
 			if(in_array('deleteStore', $this->permission)) {
-				$buttons .= ' <button type="button" class="btn btn-default" onclick="removeFunc('.$value['id'].')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>';
+				$buttons .= ' <button type="button" class="btn btn-danger btn-sm" onclick="removeFunc('.$value['id'].')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>';
 			}
 
-			$status = ($value['active'] == 1) ? '<span class="label label-success">Active</span>' : '<span class="label label-warning">Inactive</span>';
+			$status = ($value['active'] == 1) ? '<span class="badge badge-success">Aktif</span>' : '<span class="badge badge-warning">Tidak Aktif</span>';
 
 			$result['data'][$key] = array(
 				$value['name'],
@@ -102,11 +102,11 @@ class Stores extends Admin_Controller
         	$create = $this->model_stores->create($data);
         	if($create == true) {
         		$response['success'] = true;
-        		$response['messages'] = 'Succesfully created';
+        		$response['messages'] = 'Berhasil dibuat';
         	}
         	else {
         		$response['success'] = false;
-        		$response['messages'] = 'Error in the database while creating the brand information';			
+        		$response['messages'] = 'Kesalahan dalam database saat membuat informasi merek';			
         	}
         }
         else {
@@ -147,11 +147,11 @@ class Stores extends Admin_Controller
 	        	$update = $this->model_stores->update($data, $id);
 	        	if($update == true) {
 	        		$response['success'] = true;
-	        		$response['messages'] = 'Succesfully updated';
+	        		$response['messages'] = 'Berhasil diperbarui';
 	        	}
 	        	else {
 	        		$response['success'] = false;
-	        		$response['messages'] = 'Error in the database while updated the brand information';			
+	        		$response['messages'] = 'Kesalahan dalam database saat memperbarui informasi merek';			
 	        	}
 	        }
 	        else {
@@ -163,7 +163,7 @@ class Stores extends Admin_Controller
 		}
 		else {
 			$response['success'] = false;
-    		$response['messages'] = 'Error please refresh the page again!!';
+    		$response['messages'] = 'Kesalahan harap segarkan halaman lagi !!';
 		}
 
 		echo json_encode($response);
@@ -188,16 +188,16 @@ class Stores extends Admin_Controller
 			$delete = $this->model_stores->remove($store_id);
 			if($delete == true) {
 				$response['success'] = true;
-				$response['messages'] = "Successfully removed";	
+				$response['messages'] = "Berhasil dihapus";	
 			}
 			else {
 				$response['success'] = false;
-				$response['messages'] = "Error in the database while removing the brand information";
+				$response['messages'] = "Terjadi kesalahan dalam database saat menghapus informasi merek";
 			}
 		}
 		else {
 			$response['success'] = false;
-			$response['messages'] = "Refersh the page again!!";
+			$response['messages'] = "Sempurnakan halaman lagi !!";
 		}
 
 		echo json_encode($response);

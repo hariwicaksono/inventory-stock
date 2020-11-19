@@ -7,7 +7,7 @@
     <div class="container-fluid px-3">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Manage <small>Perusahaan</small></h1>
+            <h1 class="m-0 mb-1 text-dark">Master Perusahaan</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -40,7 +40,7 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Informasi Perusahaan</h3>
+              <h4 class="box-title">Informasi Perusahaan</h4>
             </div>
             <form role="form" action="<?php base_url('company/update') ?>" method="post">
               <div class="box-body">

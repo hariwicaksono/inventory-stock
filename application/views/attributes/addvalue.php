@@ -4,26 +4,32 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>
-      Manage Attributes
-      <small>Value</small>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active"><a href="<?php echo base_url('attributes/') ?>">Attributes</a></li>
-      <li class="active">Attributes Value</li>
-    </ol>
+  <div class="container-fluid px-3">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-1 text-dark">Master Atribut <small>Value</small></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url('attributes/') ?>">Atribut</a></li>
+            <li class="breadcrumb-item active">Atribut Value</li>
+          </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
   </section>
 
   <!-- Main content -->
   <section class="content">
+  <div class="container-fluid px-3 pb-3">
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-md-12 col-xs-12">
 
         <div class="box">
           <div class="box-body">
-            <h4>Attribute name: <?php echo $attribute_data['name']; ?></h4>
+            <h4>Nama Atribut : <?php echo $attribute_data['name']; ?></h4>
           </div>
         </div>
 
@@ -41,24 +47,23 @@
           </div>
         <?php endif; ?>
 
-        <?php //if(in_array('createGroup', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Value</button>
-          <br /> <br />
-        <?php //endif; ?>
+       
 
 
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Manage Attributes Value</h3>
+          <?php //if(in_array('createGroup', $user_permission)): ?>
+          <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addModal">Tambah Value</button>
+        <?php //endif; ?>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Attribute Value</th>
+                <th>Atribute Value</th>
                 <?php //if(in_array('updateGroup', $user_permission) || in_array('deleteGroup', $user_permission)): ?>
-                  <th>Action</th>
+                  <th>Aksi</th>
                 <?php //endif; ?>
               </tr>
               </thead>
@@ -73,7 +78,7 @@
     </div>
     <!-- /.row -->
     
-
+</div>
   </section>
   <!-- /.content -->
 </div>
@@ -85,23 +90,25 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add Attribute Value</h4>
+        <h4 class="modal-title">Tambah Atribut Value</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
       <form role="form" action="<?php echo base_url('attributes/createValue') ?>" method="post" id="createForm">
 
         <div class="modal-body">
           <div class="form-group">
-            <label for="brand_name">Attribute Value</label>
-            <input type="text" class="form-control" id="attribute_value_name" name="attribute_value_name" placeholder="Enter attribute value" autocomplete="off">
+            <label for="brand_name">Atribut Value</label>
+            <input type="text" class="form-control" id="attribute_value_name" name="attribute_value_name" placeholder="Masukkan nilai atribut" autocomplete="off">
           </div>
         </div>
 
         <div class="modal-footer">
           <input type="hidden" name="attribute_parent_id" id="attribute_parent_id" value="<?php echo $attribute_data['id']; ?>">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
 
       </form>
@@ -116,8 +123,10 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Edit Attribute Value</h4>
+        <h4 class="modal-title">Edit Atribut Value</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
       <form role="form" action="<?php echo base_url('attributes/updateValue') ?>" method="post" id="updateForm">
@@ -126,15 +135,15 @@
           <div id="messages"></div>
 
           <div class="form-group">
-            <label for="edit_brand_name">Attribute Value</label>
-            <input type="text" class="form-control" id="edit_attribute_value_name" name="edit_attribute_value_name" placeholder="Enter attribute value" autocomplete="off">
+            <label for="edit_brand_name">Atribut Value</label>
+            <input type="text" class="form-control" id="edit_attribute_value_name" name="edit_attribute_value_name" placeholder="Masukkan nilai atribut" autocomplete="off">
           </div>
         </div>
 
         <div class="modal-footer">
           <input type="hidden" name="attribute_parent_id" id="attribute_parent_id" value="<?php echo $attribute_data['id']; ?>">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
 
       </form>
@@ -149,17 +158,19 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Remove Attribute Value</h4>
+        <h4 class="modal-title">Hapus Atribut Value</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
       <form role="form" action="<?php echo base_url('attributes/removeValue') ?>" method="post" id="removeForm">
         <div class="modal-body">
-          <p>Do you really want to remove?</p>
+          <p>Apakah Anda benar-benar ingin menghapus?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Oke</button>
         </div>
       </form>
 
@@ -205,7 +216,7 @@ $(document).ready(function() {
         if(response.success === true) {
           $("#messages").html('<div class="alert alert-success alert-dismissible" role="alert">'+
             '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-            '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+response.messages+
+            '<strong> <i class="fas fa-check-circle"></i> </strong>'+response.messages+
           '</div>');
 
 
@@ -233,7 +244,7 @@ $(document).ready(function() {
           } else {
             $("#messages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
               '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-              '<strong> <span class="glyphicon glyphicon-exclamation-sign"></span> </strong>'+response.messages+
+              '<strong> <i class="fas fa-exclamation-circle"></i> </strong>'+response.messages+
             '</div>');
           }
         }
@@ -279,7 +290,7 @@ function editFunc(id)
             if(response.success === true) {
               $("#messages").html('<div class="alert alert-success alert-dismissible" role="alert">'+
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-                '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+response.messages+
+                '<strong> <i class="fas fa-check-circle"></i> </strong>'+response.messages+
               '</div>');
 
 
@@ -305,7 +316,7 @@ function editFunc(id)
               } else {
                 $("#messages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
                   '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-                  '<strong> <span class="glyphicon glyphicon-exclamation-sign"></span> </strong>'+response.messages+
+                  '<strong> <i class="fas fa-exclamation-circle"></i> </strong>'+response.messages+
                 '</div>');
               }
             }
@@ -342,7 +353,7 @@ function removeFunc(id)
           if(response.success === true) {
             $("#messages").html('<div class="alert alert-success alert-dismissible" role="alert">'+
               '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-              '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+response.messages+
+              '<strong> <i class="fas fa-check-circle"></i> </strong>'+response.messages+
             '</div>');
 
             // hide the modal
@@ -352,7 +363,7 @@ function removeFunc(id)
 
             $("#messages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
               '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-              '<strong> <span class="glyphicon glyphicon-exclamation-sign"></span> </strong>'+response.messages+
+              '<strong> <i class="fas fa-exclamation-circle"></i> </strong>'+response.messages+
             '</div>'); 
           }
         }
