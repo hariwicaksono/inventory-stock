@@ -46,11 +46,11 @@ class Brands extends Admin_Controller
 			$buttons = '';
 
 			if(in_array('viewBrand', $this->permission)) {
-				$buttons .= '<button type="button" class="btn btn-default btn-sm" onclick="editBrand('.$value['id'].')" data-toggle="modal" data-target="#editBrandModal"><i class="fas fa-pencil-alt"></i></button>';	
+				$buttons .= '<button type="button" class="btn btn-default btn-sm" onclick="editBrand('.$value['id'].')" data-toggle="modal" data-target="#editBrandModal"><i class="fa fa-edit"></i></button>';	
 			}
 			
 			if(in_array('deleteBrand', $this->permission)) {
-				$buttons .= ' <button type="button" class="btn btn-danger btn-sm" onclick="removeBrand('.$value['id'].')" data-toggle="modal" data-target="#removeBrandModal"><i class="fa fa-trash"></i></button>
+				$buttons .= '<button type="button" class="btn btn-danger btn-sm" onclick="removeBrand('.$value['id'].')" data-toggle="modal" data-target="#removeBrandModal"><i class="fa fa-trash"></i></button>
 				';
 			}				
 

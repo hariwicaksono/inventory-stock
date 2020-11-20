@@ -8,7 +8,7 @@ class Groups extends Admin_Controller
 
 		$this->not_logged_in();
 
-		$this->data['page_title'] = 'Groups';
+		$this->data['page_title'] = 'Grup';
 		
 
 		$this->load->model('model_groups');
@@ -37,7 +37,7 @@ class Groups extends Admin_Controller
 	* and it stores the operation message into the session flashdata and display on the manage group page
 	*/
 	public function create()
-	{
+	{ 
 
 		if(!in_array('createGroup', $this->permission)) {
 			redirect('dashboard', 'refresh');
@@ -56,11 +56,11 @@ class Groups extends Admin_Controller
 
         	$create = $this->model_groups->create($data);
         	if($create == true) {
-        		$this->session->set_flashdata('success', 'Successfully created');
+        		$this->session->set_flashdata('success', '<i class="fas fa-check-circle"></i> Berhasil dibuat');
         		redirect('groups/', 'refresh');
         	}
         	else {
-        		$this->session->set_flashdata('errors', 'Error occurred!!');
+        		$this->session->set_flashdata('errors', '<i class="fas fa-exclamation-circle"></i> Terjadi kesalahan !!');
         		redirect('groups/create', 'refresh');
         	}
         }
@@ -97,11 +97,11 @@ class Groups extends Admin_Controller
 
 	        	$update = $this->model_groups->edit($data, $id);
 	        	if($update == true) {
-	        		$this->session->set_flashdata('success', 'Successfully updated');
+	        		$this->session->set_flashdata('success', '<i class="fas fa-check-circle"></i> Berhasil diperbarui');
 	        		redirect('groups/', 'refresh');
 	        	}
 	        	else {
-	        		$this->session->set_flashdata('errors', 'Error occurred!!');
+	        		$this->session->set_flashdata('errors', '<i class="fas fa-exclamation-circle"></i> Terjadi kesalahan !!');
 	        		redirect('groups/edit/'.$id, 'refresh');
 	        	}
 	        }
@@ -130,17 +130,17 @@ class Groups extends Admin_Controller
 
 				$check = $this->model_groups->existInUserGroup($id);
 				if($check == true) {
-					$this->session->set_flashdata('error', 'Group exists in the users');
+					$this->session->set_flashdata('error', 'Grup ada di pengguna');
 	        		redirect('groups/', 'refresh');
 				}
 				else {
 					$delete = $this->model_groups->delete($id);
 					if($delete == true) {
-		        		$this->session->set_flashdata('success', 'Successfully removed');
+		        		$this->session->set_flashdata('success', 'Berhasil dihapus');
 		        		redirect('groups/', 'refresh');
 		        	}
 		        	else {
-		        		$this->session->set_flashdata('error', 'Error occurred!!');
+		        		$this->session->set_flashdata('error', 'Terjadi kesalahan !!');
 		        		redirect('groups/delete/'.$id, 'refresh');
 		        	}
 				}	

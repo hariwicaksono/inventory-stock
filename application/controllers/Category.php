@@ -60,7 +60,7 @@ class Category extends Admin_Controller
 			$buttons = '';
 
 			if(in_array('updateCategory', $this->permission)) {
-				$buttons .= '<button type="button" class="btn btn-default btn-sm" onclick="editFunc('.$value['id'].')" data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></button>';
+				$buttons .= '<button type="button" class="btn btn-default btn-sm" onclick="editFunc('.$value['id'].')" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>';
 			}
 
 			if(in_array('deleteCategory', $this->permission)) {

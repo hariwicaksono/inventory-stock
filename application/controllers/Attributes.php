@@ -53,7 +53,7 @@ class Attributes extends Admin_Controller
 
 			// button
 			$buttons = '<a href="'.base_url('attributes/addvalue/'.$value['id']).'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Add Value</a> 
-			<button type="button" class="btn btn-default btn-sm" onclick="editFunc('.$value['id'].')" data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></button>
+			<button type="button" class="btn btn-default btn-sm" onclick="editFunc('.$value['id'].')" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
 			<button type="button" class="btn btn-danger btn-sm" onclick="removeFunc('.$value['id'].')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>
 			';
 
@@ -221,7 +221,7 @@ class Attributes extends Admin_Controller
 
 			// button
 			$buttons = '
-			<button type="button" class="btn btn-default btn-sm" onclick="editFunc('.$value['id'].')" data-toggle="modal" data-target="#editModal"><i class="fas fa-pencil-alt"></i></button>
+			<button type="button" class="btn btn-default btn-sm" onclick="editFunc('.$value['id'].')" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
 			<button type="button" class="btn btn-danger btn-sm" onclick="removeFunc('.$value['id'].')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>
 			';
 

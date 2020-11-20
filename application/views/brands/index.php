@@ -333,7 +333,7 @@ function editBrand(id)
 
     }
   });
-}
+} 
 
 function removeBrand(id)
 {
