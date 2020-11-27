@@ -4,18 +4,24 @@
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>
-      Manage
-      <small>Orders</small>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Orders</li>
-    </ol>
+  <div class="container-fluid px-3">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-1 text-dark">Manage Pesanan</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item active">Pesanan</li>
+          </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
   </section>
 
   <!-- Main content -->
   <section class="content">
+  <div class="container-fluid px-3 pb-3">
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-md-12 col-xs-12">
@@ -37,7 +43,7 @@
 
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Add Order</h3>
+            <h3 class="box-title">Pesanan Baru</h3>
           </div>
           <!-- /.box-header -->
           <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal">
@@ -46,13 +52,11 @@
                 <?php echo validation_errors(); ?>
 
                 <div class="form-group">
-                  <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('Y-m-d') ?></label>
-                </div>
-                <div class="form-group">
-                  <label for="gross_amount" class="col-sm-12 control-label">Date: <?php echo date('h:i a') ?></label>
+                  <label for="gross_amount" class="col-sm-12 control-label">Tanggal: <?php echo date('Y-m-d') ?></label>
+                  <label for="gross_amount" class="col-sm-12 control-label">Jam: <?php echo date('h:i a') ?></label>
                 </div>
 
-                <div class="col-md-4 col-xs-12 pull pull-left">
+                <div class="col-md-8 col-xs-12 float-left">
 
                   <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
@@ -108,14 +112,14 @@
                           <input type="text" name="amount[]" id="amount_1" class="form-control" disabled autocomplete="off">
                           <input type="hidden" name="amount_value[]" id="amount_value_1" class="form-control" autocomplete="off">
                         </td>
-                        <td><button type="button" class="btn btn-default" onclick="removeRow('1')"><i class="fa fa-close"></i></button></td>
+                        <td><button type="button" class="btn btn-default" onclick="removeRow('1')"><i class="fas fa-trash"></i></button></td>
                      </tr>
                    </tbody>
                 </table>
 
                 <br /> <br/>
 
-                <div class="col-md-6 col-xs-12 pull pull-right">
+                <div class="col-md-8 col-xs-12">
 
                   <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label">Gross Amount</label>
@@ -174,7 +178,7 @@
       <!-- col-md-12 -->
     </div>
     <!-- /.row -->
-    
+    </div>
 
   </section>
   <!-- /.content -->
@@ -185,7 +189,7 @@
   var base_url = "<?php echo base_url(); ?>";
 
   $(document).ready(function() {
-    $(".select_group").select2();
+    $(".select_group").select2()
     // $("#description").wysihtml5();
 
     $("#mainOrdersNav").addClass('active');
@@ -222,7 +226,7 @@
                     '<td><input type="number" name="qty[]" id="qty_'+row_id+'" class="form-control" onkeyup="getTotal('+row_id+')"></td>'+
                     '<td><input type="text" name="rate[]" id="rate_'+row_id+'" class="form-control" disabled><input type="hidden" name="rate_value[]" id="rate_value_'+row_id+'" class="form-control"></td>'+
                     '<td><input type="text" name="amount[]" id="amount_'+row_id+'" class="form-control" disabled><input type="hidden" name="amount_value[]" id="amount_value_'+row_id+'" class="form-control"></td>'+
-                    '<td><button type="button" class="btn btn-default" onclick="removeRow(\''+row_id+'\')"><i class="fa fa-close"></i></button></td>'+
+                    '<td><button type="button" class="btn btn-default" onclick="removeRow(\''+row_id+'\')"><i class="fas fa-trash"></i></button></td>'+
                     '</tr>';
 
                 if(count_table_tbody_tr >= 1) {

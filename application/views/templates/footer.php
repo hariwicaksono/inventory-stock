@@ -21,6 +21,8 @@
   </script>
   <!-- Bootstrap 4 -->
   <script src="<?php echo base_url('assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+  <!-- Select2 -->
+  <script src="<?php echo base_url('assets/adminlte/plugins/select2/js/select2.full.min.js') ?>"></script>
   <!-- ChartJS -->
   <script src="<?php echo base_url('assets/bower_components/Chart.js/Chart.js') ?>"></script>
   <!-- Sparkline -->
@@ -41,8 +43,6 @@
   <script src="<?php echo base_url('assets/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') ?>"></script>
   <!-- Bootstrap WYSIHTML5 -->
   <script src="<?php echo base_url('assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') ?>"></script>
-   <!-- Select2 -->
-   <script src="<?php echo base_url('assets/bower_components/select2/dist/js/select2.full.min.js') ?>"></script>
   <!-- AdminLTE App -->
   <script src="<?php echo base_url('assets/adminlte/dist/js/adminlte.js') ?>"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

@@ -110,11 +110,11 @@ class Brands extends Admin_Controller
         	$create = $this->model_brands->create($data);
         	if($create == true) {
         		$response['success'] = true;
-        		$response['messages'] = 'Berhasil dibuat';
+        		$response['messages'] = '<i class="fas fa-check-circle"></i> Berhasil dibuat';
         	}
         	else {
         		$response['success'] = false;
-        		$response['messages'] = 'Kesalahan dalam database saat membuat informasi merek';			
+        		$response['messages'] = '<i class="fas fa-exclamation-circle"></i> Kesalahan dalam database saat membuat informasi merek';			
         	}
         }
         else {
@@ -152,15 +152,15 @@ class Brands extends Admin_Controller
 	        		'name' => $this->input->post('edit_brand_name'),
 	        		'active' => $this->input->post('edit_active'),	
 	        	);
-
+ 
 	        	$update = $this->model_brands->update($data, $id);
 	        	if($update == true) {
 	        		$response['success'] = true;
-	        		$response['messages'] = 'Berhasil diperbarui';
+	        		$response['messages'] = '<i class="fas fa-check-circle"></i> Berhasil diperbarui';
 	        	}
 	        	else {
 	        		$response['success'] = false;
-	        		$response['messages'] = 'Kesalahan dalam database saat memperbarui informasi merek';			
+	        		$response['messages'] = '<i class="fas fa-exclamation-circle"></i> Kesalahan dalam database saat memperbarui informasi merek';			
 	        	}
 	        }
 	        else {
@@ -172,7 +172,7 @@ class Brands extends Admin_Controller
 		}
 		else {
 			$response['success'] = false;
-    		$response['messages'] = 'Kesalahan harap segarkan halaman lagi !!';
+    		$response['messages'] = '<i class="fas fa-exclamation-circle"></i> Kesalahan harap segarkan halaman lagi !!';
 		}
 
 		echo json_encode($response);
@@ -199,12 +199,12 @@ class Brands extends Admin_Controller
 			}
 			else {
 				$response['success'] = false;
-				$response['messages'] = "Terjadi kesalahan dalam database saat menghapus informasi merek";
+				$response['messages'] = '<i class="fas fa-exclamation-circle"></i> Terjadi kesalahan dalam database saat menghapus informasi merek';
 			}
 		}
 		else {
 			$response['success'] = false;
-			$response['messages'] = "Segarkan halaman lagi !!";
+			$response['messages'] = '<i class="fas fa-exclamation-circle"></i> Segarkan halaman lagi !!';
 		}
 
 		echo json_encode($response);

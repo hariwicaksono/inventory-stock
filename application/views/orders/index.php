@@ -1,21 +1,25 @@
-
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>
-      Manage
-      <small>Orders</small>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Orders</li>
-    </ol>
+  <div class="container-fluid px-3">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-1 text-dark">Manage Pesanan</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item active">Pesanan</li>
+          </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
   </section>
 
   <!-- Main content -->
   <section class="content">
+  <div class="container-fluid px-3 pb-3">
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-md-12 col-xs-12">
@@ -34,14 +38,11 @@
           </div>
         <?php endif; ?>
 
-        <?php if(in_array('createOrder', $user_permission)): ?>
-          <a href="<?php echo base_url('orders/create') ?>" class="btn btn-primary">Add Order</a>
-          <br /> <br />
-        <?php endif; ?>
-
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Manage Orders</h3>
+          <?php if(in_array('createOrder', $user_permission)): ?>
+            <a href="<?php echo base_url('orders/create') ?>" class="btn btn-primary mb-3">Tambah Pesanan</a>
+          <?php endif; ?>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -70,7 +71,7 @@
       <!-- col-md-12 -->
     </div>
     <!-- /.row -->
-    
+    </div>
 
   </section>
   <!-- /.content -->

@@ -10,7 +10,7 @@ class Orders extends Admin_Controller
 
 		$this->not_logged_in();
 
-		$this->data['page_title'] = 'Orders';
+		$this->data['page_title'] = 'Pesanan';
 
 		$this->load->model('model_orders');
 		$this->load->model('model_products');
@@ -26,7 +26,7 @@ class Orders extends Admin_Controller
             redirect('dashboard', 'refresh');
         }
 
-		$this->data['page_title'] = 'Manage Orders';
+		$this->data['page_title'] = 'Manage Pesanan';
 		$this->render_template('orders/index', $this->data);		
 	}
 
@@ -96,7 +96,7 @@ class Orders extends Admin_Controller
             redirect('dashboard', 'refresh');
         }
 
-		$this->data['page_title'] = 'Add Order';
+		$this->data['page_title'] = 'Pesanan Baru';
 
 		$this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
 		

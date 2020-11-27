@@ -136,11 +136,11 @@ class Groups extends Admin_Controller
 				else {
 					$delete = $this->model_groups->delete($id);
 					if($delete == true) {
-		        		$this->session->set_flashdata('success', 'Berhasil dihapus');
+		        		$this->session->set_flashdata('success', '<i class="fas fa-check-circle"></i> Berhasil dihapus');
 		        		redirect('groups/', 'refresh');
 		        	}
 		        	else {
-		        		$this->session->set_flashdata('error', 'Terjadi kesalahan !!');
+		        		$this->session->set_flashdata('error', '<i class="fas fa-exclamation-circle"></i> Terjadi kesalahan !!');
 		        		redirect('groups/delete/'.$id, 'refresh');
 		        	}
 				}	

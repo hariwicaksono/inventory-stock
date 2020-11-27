@@ -31,7 +31,8 @@
   <!-- datatables -->
   <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap4.min.css') ?>">
   <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/select2/dist/css/select2.min.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/select2/css/select2.min.css') ?>">
+  <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/fileinput/fileinput.min.css') ?>">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
