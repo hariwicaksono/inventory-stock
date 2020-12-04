@@ -52,7 +52,7 @@ class Orders extends Admin_Controller
 			$buttons = '';
 
 			if(in_array('viewOrder', $this->permission)) {
-				$buttons .= '<a target="__blank" href="'.base_url('orders/printDiv/'.$value['id']).'" class="btn btn-default"><i class="fa fa-print"></i></a>';
+				$buttons .= '<a target="__blank" href="'.base_url('orders/printDiv/'.$value['id']).'" class="btn btn-default btn-sm"><i class="fa fa-print"></i></a>';
 			}
 
 			if(in_array('updateOrder', $this->permission)) {
@@ -106,11 +106,11 @@ class Orders extends Admin_Controller
         	$order_id = $this->model_orders->create();
         	
         	if($order_id) {
-        		$this->session->set_flashdata('success', 'Successfully created');
+        		$this->session->set_flashdata('success', '<i class="fas fa-check-circle"></i> Berhasil dibuat'); 
         		redirect('orders/update/'.$order_id, 'refresh');
         	}
         	else {
-        		$this->session->set_flashdata('errors', 'Error occurred!!');
+        		$this->session->set_flashdata('errors', '<i class="fas fa-exclamation-circle"></i> Terjadi kesalahan!!');
         		redirect('orders/create/', 'refresh');
         	}
         }
@@ -177,11 +177,11 @@ class Orders extends Admin_Controller
         	$update = $this->model_orders->update($id);
         	
         	if($update == true) {
-        		$this->session->set_flashdata('success', 'Successfully updated');
+        		$this->session->set_flashdata('success', '<i class="fas fa-check-circle"></i> Berhasil diubah');
         		redirect('orders/update/'.$id, 'refresh');
         	}
         	else {
-        		$this->session->set_flashdata('errors', 'Error occurred!!');
+        		$this->session->set_flashdata('errors', '<i class="fas fa-exclamation-circle"></i> Terjadi kesalahan!!');
         		redirect('orders/update/'.$id, 'refresh');
         	}
         }
@@ -227,16 +227,16 @@ class Orders extends Admin_Controller
             $delete = $this->model_orders->remove($order_id);
             if($delete == true) {
                 $response['success'] = true;
-                $response['messages'] = "Successfully removed"; 
+                $response['messages'] = "Berhasil dihapus"; 
             }
             else {
                 $response['success'] = false;
-                $response['messages'] = "Error in the database while removing the product information";
+                $response['messages'] = "Kesalahan dalam database saat menghapus informasi produk";
             }
         }
         else {
             $response['success'] = false;
-            $response['messages'] = "Refersh the page again!!";
+            $response['messages'] = "Segarkan halaman lagi !!";
         }
 
         echo json_encode($response); 
@@ -266,14 +266,15 @@ class Orders extends Admin_Controller
 			<head>
 			  <meta charset="utf-8">
 			  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-			  <title>AdminLTE 2 | Invoice</title>
+			  <title>Invoice</title>
 			  <!-- Tell the browser to be responsive to screen width -->
-			  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-			  <!-- Bootstrap 3.3.7 -->
-			  <link rel="stylesheet" href="'.base_url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css').'">
+			  <meta name="viewport" content="width=device-width, initial-scale=1">
+			  
+			<!-- Google Font: Source Sans Pro -->
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 			  <!-- Font Awesome -->
-			  <link rel="stylesheet" href="'.base_url('assets/bower_components/font-awesome/css/font-awesome.min.css').'">
-			  <link rel="stylesheet" href="'.base_url('assets/dist/css/AdminLTE.min.css').'">
+			  <link rel="stylesheet" href="'.base_url('assets/adminlte/plugins/fontawesome-free/css/all.min.css').'">
+			  <link rel="stylesheet" href="'.base_url('assets/adminlte/dist/css/adminlte.min.css').'">
 			</head>
 			<body onload="window.print();">
 			
@@ -281,10 +282,10 @@ class Orders extends Admin_Controller
 			  <section class="invoice">
 			    <!-- title row -->
 			    <div class="row">
-			      <div class="col-xs-12">
+			      <div class="col-12">
 			        <h2 class="page-header">
 			          '.$company_info['company_name'].'
-			          <small class="pull-right">Date: '.$order_date.'</small>
+					  <small class="float-right">Tanggal: '.$order_date.'</small>
 			        </h2>
 			      </div>
 			      <!-- /.col -->
@@ -293,9 +294,9 @@ class Orders extends Admin_Controller
 			    <div class="row invoice-info">
 			      
 			      <div class="col-sm-4 invoice-col">
-			        
-			        <b>Bill ID:</b> '.$order_data['bill_no'].'<br>
-			        <b>Name:</b> '.$order_data['customer_name'].'<br>
+	
+			        <b>Bill ID:</b> '.$order_data['bill_no'].'<br/>
+			        <b>Name:</b> '.$order_data['customer_name'].'<br/>
 			        <b>Address:</b> '.$order_data['customer_address'].' <br />
 			        <b>Phone:</b> '.$order_data['customer_phone'].'
 			      </div>

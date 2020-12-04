@@ -58,18 +58,18 @@
             <li class="nav-item has-treeview" id="mainUserNav">
             <a href="#" class="nav-link">
               <i class="fa fa-users nav-icon"></i>
-              <p>Member
+              <p>Pengguna
               <i class="fa fa-angle-left right"></i>
               </p>
               
             </a>
             <ul class="nav nav-treeview">
               <?php if(in_array('createUser', $user_permission)): ?>
-              <li class="nav-item" id="createUserNav"><a class="nav-link" href="<?php echo base_url('users/create') ?>"><i class="far fa-circle nav-icon"></i> Tambah Member</a></li>
+              <li class="nav-item" id="createUserNav"><a class="nav-link" href="<?php echo base_url('users/create') ?>"><i class="far fa-circle nav-icon"></i> Tambah Pengguna</a></li>
               <?php endif; ?>
 
               <?php if(in_array('updateUser', $user_permission) || in_array('viewUser', $user_permission) || in_array('deleteUser', $user_permission)): ?>
-              <li class="nav-item" id="manageUserNav"><a class="nav-link" href="<?php echo base_url('users') ?>"><i class="far fa-circle nav-icon"></i> Manage Member</a></li>
+              <li class="nav-item" id="manageUserNav"><a class="nav-link" href="<?php echo base_url('users') ?>"><i class="far fa-circle nav-icon"></i> Manage Pengguna</a></li>
             <?php endif; ?>
             </ul>
           </li>

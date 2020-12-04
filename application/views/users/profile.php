@@ -7,7 +7,7 @@
     <div class="container-fluid px-3">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Profil <small>User</small></h1>
+            <h1 class="m-0 mb-1 text-dark">Profil Pengguna</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -27,9 +27,6 @@
         <div class="col-md-12 col-xs-12">
 
           <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Profil</h3>
-            </div>
             <!-- /.box-header -->
             <div class="box-body">
               <table class="table table-bordered table-condensed table-hovered">

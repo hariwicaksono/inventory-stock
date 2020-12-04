@@ -40,18 +40,20 @@
 
 
         <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Add Product</h3>
-          </div>
+
           <!-- /.box-header -->
           <form role="form" action="<?php base_url('users/create') ?>" method="post" enctype="multipart/form-data">
               <div class="box-body">
 
+              <?php if(validation_errors()): ?>
+                <div class="callout callout-danger">
                 <?php echo validation_errors(); ?>
+                </div>
+                <?php endif; ?>
 
                 <div class="form-group">
 
-                  <label for="product_image">Image</label>
+                  <label for="product_image">Gambar</label>
                   <div class="kv-avatar">
                       <div class="file-loading">
                           <input id="product_image" name="product_image" type="file">
@@ -60,29 +62,28 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="product_name">Product name</label>
-                  <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" autocomplete="off"/>
+                  <label for="product_name">Nama Produk</label>
+                  <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Nama Produk" autocomplete="off"/>
                 </div>
 
                 <div class="form-group">
                   <label for="sku">SKU</label>
-                  <input type="text" class="form-control" id="sku" name="sku" placeholder="Enter sku" autocomplete="off" />
+                  <input type="text" class="form-control" id="sku" name="sku" placeholder="SKU" autocomplete="off" />
                 </div>
 
                 <div class="form-group">
-                  <label for="price">Price</label>
-                  <input type="text" class="form-control" id="price" name="price" placeholder="Enter price" autocomplete="off" />
+                  <label for="price">Harga</label>
+                  <input type="text" class="form-control" id="price" name="price" placeholder="Harga" autocomplete="off" />
                 </div>
 
                 <div class="form-group">
-                  <label for="qty">Qty</label>
-                  <input type="text" class="form-control" id="qty" name="qty" placeholder="Enter Qty" autocomplete="off" />
+                  <label for="qty">Stok</label>
+                  <input type="text" class="form-control" id="qty" name="qty" placeholder="Stok" autocomplete="off" />
                 </div>
 
                 <div class="form-group">
-                  <label for="description">Description</label>
-                  <textarea class="textarea" name="description" placeholder="Enter 
-                  description" autocomplete="off" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                  <label for="description">Deskripsi</label>
+                  <textarea class="textarea form-control" name="description" placeholder="Deskripsi" autocomplete="off">
                   </textarea>
                 </div>
 
@@ -100,7 +101,7 @@
                 <?php endif; ?>
 
                 <div class="form-group">
-                  <label for="brands">Brands</label>
+                  <label for="brands">Merek</label>
                   <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple">
                     <?php foreach ($brands as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
@@ -109,7 +110,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="category">Category</label>
+                  <label for="category">Kategori</label>
                   <select class="form-control select_group" id="category" name="category[]" multiple="multiple">
                     <?php foreach ($category as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
@@ -118,7 +119,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="store">Store</label>
+                  <label for="store">Toko</label>
                   <select class="form-control select_group" id="store" name="store">
                     <?php foreach ($stores as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
@@ -127,7 +128,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="store">Availability</label>
+                  <label for="store">Ketersediaan</label>
                   <select class="form-control" id="availability" name="availability">
                     <option value="1">Yes</option>
                     <option value="2">No</option>
@@ -138,8 +139,8 @@
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Save Changes</button>
-                <a href="<?php echo base_url('products/') ?>" class="btn btn-warning">Back</a>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="<?php echo base_url('products/') ?>" class="btn btn-warning">Kembali</a>
               </div>
             </form>
           <!-- /.box-body -->
@@ -158,17 +159,17 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $(".select_group").select2();
+    $(".select_group").select2({
+      theme: 'bootstrap4'
+    });
     $("#description").wysihtml5();
 
     $("#mainProductNav").addClass('active');
     $("#addProductNav").addClass('active');
     
-    var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' + 
-        'onclick="alert(\'Call your custom code here.\')">' +
-        '<i class="fas fa-tag"></i>' +
-        '</button>'; 
+
     $("#product_image").fileinput({
+        theme: "fas",
         overwriteInitial: true,
         maxFileSize: 1500,
         showClose: false,
@@ -181,7 +182,7 @@
         elErrorContainer: '#kv-avatar-errors-1',
         msgErrorClass: 'alert alert-block alert-danger',
         // defaultPreviewContent: '<img src="/uploads/default_avatar_male.jpg" alt="Your Avatar">',
-        layoutTemplates: {main2: '{preview} ' +  btnCust + ' {remove} {browse}'},
+        layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
         allowedFileExtensions: ["jpg", "png", "gif"]
     });
 

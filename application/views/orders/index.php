@@ -23,7 +23,7 @@
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-md-12 col-xs-12">
-
+ 
         <div id="messages"></div>
 
         <?php if($this->session->flashdata('success')): ?>
@@ -85,16 +85,16 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Remove Order</h4>
+        <h4 class="modal-title">Hapus Pesanan</h4>
       </div>
 
       <form role="form" action="<?php echo base_url('orders/remove') ?>" method="post" id="removeForm">
         <div class="modal-body">
-          <p>Do you really want to remove?</p>
+          <p>Apakah Anda benar-benar ingin menghapus?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
       </form>
 
@@ -146,7 +146,7 @@ function removeFunc(id)
           if(response.success === true) {
             $("#messages").html('<div class="alert alert-success alert-dismissible" role="alert">'+
               '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-              '<strong> <span class="glyphicon glyphicon-ok-sign"></span> </strong>'+response.messages+
+              '<strong> <i class="fas fa-check-circle"></i> </strong>'+response.messages+
             '</div>');
 
             // hide the modal
@@ -156,7 +156,7 @@ function removeFunc(id)
 
             $("#messages").html('<div class="alert alert-warning alert-dismissible" role="alert">'+
               '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
-              '<strong> <span class="glyphicon glyphicon-exclamation-sign"></span> </strong>'+response.messages+
+              '<strong> <i class="fas fa-exclamation-circle"></i> </strong>'+response.messages+
             '</div>'); 
           }
         }

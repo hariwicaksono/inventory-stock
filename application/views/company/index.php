@@ -12,7 +12,7 @@
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="./">Home</a></li>
-            <li class="breadcrumb-item active">Master Perusahaan</li>
+            <li class="breadcrumb-item active">Perusahaan</li>
           </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -37,11 +37,9 @@
               <?php echo $this->session->flashdata('error'); ?>
             </div>
           <?php endif; ?>
-
+ 
           <div class="box">
-            <div class="box-header">
-              <h4 class="box-title">Informasi Perusahaan</h4>
-            </div>
+
             <form role="form" action="<?php base_url('company/update') ?>" method="post">
               <div class="box-body">
 

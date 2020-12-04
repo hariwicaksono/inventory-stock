@@ -44,6 +44,8 @@
 
   <!-- jQuery -->
   <script src="<?php echo base_url('assets/adminlte/plugins/jquery/jquery.min.js') ?>"></script>
+  <script src="<?php echo base_url('assets/plugins/fileinput/fileinput.min.js') ?>"></script>
+  <script src="<?php echo base_url('assets/plugins/fileinput/themes/fas/theme.min.js') ?>"></script>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

@@ -10,7 +10,7 @@ class Products extends Admin_Controller
 
 		$this->not_logged_in();
 
-		$this->data['page_title'] = 'Products';
+		$this->data['page_title'] = 'Produk';
 
 		$this->load->model('model_products');
 		$this->load->model('model_brands');
@@ -47,23 +47,23 @@ class Products extends Admin_Controller
 			// button
             $buttons = '';
             if(in_array('updateProduct', $this->permission)) {
-    			$buttons .= '<a href="'.base_url('products/update/'.$value['id']).'" class="btn btn-default"><i class="fa fa-pencil"></i></a>';
+    			$buttons .= '<a href="'.base_url('products/update/'.$value['id']).'" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>';
             }
 
             if(in_array('deleteProduct', $this->permission)) { 
-    			$buttons .= ' <button type="button" class="btn btn-default" onclick="removeFunc('.$value['id'].')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>';
+    			$buttons .= ' <button type="button" class="btn btn-danger btn-sm" onclick="removeFunc('.$value['id'].')" data-toggle="modal" data-target="#removeModal"><i class="fa fa-trash"></i></button>';
             }
 			
 
-			$img = '<img src="'.base_url($value['image']).'" alt="'.$value['name'].'" class="img-circle" width="50" height="50" />';
+			$img = '<img src="'.base_url($value['image']).'" alt="'.$value['name'].'" width="30" />';
 
-            $availability = ($value['availability'] == 1) ? '<span class="label label-success">Active</span>' : '<span class="label label-warning">Inactive</span>';
+            $availability = ($value['availability'] == 1) ? '<span class="badge badge-success">Aktif</span>' : '<span class="badge badge-warning">Tidak-Aktif</span>';
 
             $qty_status = '';
             if($value['qty'] <= 10) {
-                $qty_status = '<span class="label label-warning">Low !</span>';
+                $qty_status = '<span class="badge badge-warning">Mau Habis <10</span>';
             } else if($value['qty'] <= 0) {
-                $qty_status = '<span class="label label-danger">Out of stock !</span>';
+                $qty_status = '<span class="badge badge-danger">Habis Terjual!</span>';
             }
 
 
@@ -104,7 +104,7 @@ class Products extends Admin_Controller
         if ($this->form_validation->run() == TRUE) {
             // true case
         	$upload_image = $this->upload_image();
-
+ 
         	$data = array(
         		'name' => $this->input->post('product_name'),
         		'sku' => $this->input->post('sku'),
@@ -121,11 +121,11 @@ class Products extends Admin_Controller
 
         	$create = $this->model_products->create($data);
         	if($create == true) {
-        		$this->session->set_flashdata('success', 'Successfully created');
+        		$this->session->set_flashdata('success', '<i class="fas fa-check-circle"></i> Berhasil dibuat');
         		redirect('products/', 'refresh');
         	}
         	else {
-        		$this->session->set_flashdata('errors', 'Error occurred!!');
+        		$this->session->set_flashdata('errors', '<i class="fas fa-exclamation-circle"></i> Terjadi kesalahan!!');
         		redirect('products/create', 'refresh');
         	}
         }
@@ -233,11 +233,11 @@ class Products extends Admin_Controller
 
             $update = $this->model_products->update($data, $product_id);
             if($update == true) {
-                $this->session->set_flashdata('success', 'Successfully updated');
+                $this->session->set_flashdata('success', '<i class="fas fa-check-circle"></i> Berhasil diubah');
                 redirect('products/', 'refresh');
             }
             else {
-                $this->session->set_flashdata('errors', 'Error occurred!!');
+                $this->session->set_flashdata('errors', '<i class="fas fa-exclamation-circle"></i> Terjadi kesalahan!!');
                 redirect('products/update/'.$product_id, 'refresh');
             }
         }
@@ -283,16 +283,16 @@ class Products extends Admin_Controller
             $delete = $this->model_products->remove($product_id);
             if($delete == true) {
                 $response['success'] = true;
-                $response['messages'] = "Successfully removed"; 
+                $response['messages'] = 'Berhasil dihapus'; 
             }
             else {
                 $response['success'] = false;
-                $response['messages'] = "Error in the database while removing the product information";
+                $response['messages'] = 'Kesalahan dalam database saat menghapus informasi produk';
             }
         }
         else {
             $response['success'] = false;
-            $response['messages'] = "Refersh the page again!!";
+            $response['messages'] = 'Segarkan halaman lagi !!';
         }
 
         echo json_encode($response);

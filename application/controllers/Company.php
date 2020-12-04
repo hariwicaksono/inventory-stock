@@ -51,11 +51,11 @@ class Company extends Admin_Controller
 
         	$update = $this->model_company->update($data, 1);
         	if($update == true) {
-        		$this->session->set_flashdata('success', 'Berhasil dibuat');
+        		$this->session->set_flashdata('success', '<i class="fas fa-check-circle"></i> Berhasil diubah');
         		redirect('company/', 'refresh');
         	}
         	else {
-        		$this->session->set_flashdata('errors', 'Terjadi kesalahan!!');
+        		$this->session->set_flashdata('errors', '<i class="fas fa-exclamation-circle"></i> Terjadi kesalahan!!');
         		redirect('company/index', 'refresh');
         	}
         }

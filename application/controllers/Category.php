@@ -55,7 +55,7 @@ class Category extends Admin_Controller
 		$data = $this->model_category->getCategoryData();
 
 		foreach ($data as $key => $value) {
-
+ 
 			// button
 			$buttons = '';
 

@@ -1,9 +1,9 @@
 
   <footer class="main-footer">
     <div class="float-right hidden-xs">
-      <b>Version</b> 0.1.0
+      <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; ABC Inc. 2018-<?php echo date('Y') ?>.</strong> All rights reserved.
+    <strong>Copyright &copy; IT Shop Purwokerto. <?php echo date('Y') ?>.</strong> All rights reserved.
   </footer>
 
   <aside class="control-sidebar control-sidebar-dark">
@@ -49,7 +49,7 @@
   <script src="<?php echo base_url('assets/adminlte/dist/js/pages/dashboard.js') ?>"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="<?php echo base_url('assets/adminlte/dist/js/demo.js') ?>"></script>
-  <script src="<?php echo base_url('assets/plugins/fileinput/fileinput.min.js') ?>"></script>
+  
   <!-- DataTables -->
   <script src="<?php echo base_url('assets/bower_components/datatables.net/js/jquery.dataTables.min.js') ?>"></script>
   <script src="<?php echo base_url('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap4.min.js') ?>"></script>

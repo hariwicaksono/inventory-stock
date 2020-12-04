@@ -30,7 +30,7 @@ class Brands extends Admin_Controller
 
 		$this->render_template('brands/index', $this->data);
 	}
-
+ 
 	/*
 	* Fetches the brand data from the brand table 
 	* this function is called from the datatable ajax function
@@ -46,7 +46,7 @@ class Brands extends Admin_Controller
 			$buttons = '';
 
 			if(in_array('viewBrand', $this->permission)) {
-				$buttons .= '<button type="button" class="btn btn-default btn-sm" onclick="editBrand('.$value['id'].')" data-toggle="modal" data-target="#editBrandModal"><i class="fa fa-edit"></i></button>';	
+				$buttons .= '<button type="button" class="btn btn-default btn-sm" onclick="editBrand('.$value['id'].')" data-toggle="modal" data-target="#editBrandModal"><i class="fa fa-edit"></i></button>&nbsp;';	
 			}
 			
 			if(in_array('deleteBrand', $this->permission)) {
@@ -110,11 +110,11 @@ class Brands extends Admin_Controller
         	$create = $this->model_brands->create($data);
         	if($create == true) {
         		$response['success'] = true;
-        		$response['messages'] = '<i class="fas fa-check-circle"></i> Berhasil dibuat';
+        		$response['messages'] = 'Berhasil dibuat';
         	}
         	else {
         		$response['success'] = false;
-        		$response['messages'] = '<i class="fas fa-exclamation-circle"></i> Kesalahan dalam database saat membuat informasi merek';			
+        		$response['messages'] = 'Kesalahan dalam database saat membuat informasi merek';			
         	}
         }
         else {
@@ -156,11 +156,11 @@ class Brands extends Admin_Controller
 	        	$update = $this->model_brands->update($data, $id);
 	        	if($update == true) {
 	        		$response['success'] = true;
-	        		$response['messages'] = '<i class="fas fa-check-circle"></i> Berhasil diperbarui';
+	        		$response['messages'] = 'Berhasil diperbarui';
 	        	}
 	        	else {
 	        		$response['success'] = false;
-	        		$response['messages'] = '<i class="fas fa-exclamation-circle"></i> Kesalahan dalam database saat memperbarui informasi merek';			
+	        		$response['messages'] = 'Kesalahan dalam database saat memperbarui informasi merek';			
 	        	}
 	        }
 	        else {
@@ -172,7 +172,7 @@ class Brands extends Admin_Controller
 		}
 		else {
 			$response['success'] = false;
-    		$response['messages'] = '<i class="fas fa-exclamation-circle"></i> Kesalahan harap segarkan halaman lagi !!';
+    		$response['messages'] = 'Kesalahan harap segarkan halaman lagi !!';
 		}
 
 		echo json_encode($response);
@@ -199,12 +199,12 @@ class Brands extends Admin_Controller
 			}
 			else {
 				$response['success'] = false;
-				$response['messages'] = '<i class="fas fa-exclamation-circle"></i> Terjadi kesalahan dalam database saat menghapus informasi merek';
+				$response['messages'] = 'Terjadi kesalahan dalam database saat menghapus informasi merek';
 			}
 		}
 		else {
 			$response['success'] = false;
-			$response['messages'] = '<i class="fas fa-exclamation-circle"></i> Segarkan halaman lagi !!';
+			$response['messages'] = 'Segarkan halaman lagi !!';
 		}
 
 		echo json_encode($response);

@@ -7,12 +7,12 @@
     <div class="container-fluid px-3">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Manage Users</h1>
+            <h1 class="m-0 mb-1 text-dark">Manage Pengguna</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="./">Home</a></li>
-            <li class="breadcrumb-item active">Users</li>
+            <li class="breadcrumb-item active">Pengguna</li>
           </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -41,7 +41,7 @@
           <div class="box">
             <div class="box-header">
             <?php if(in_array('createUser', $user_permission)): ?>
-            <a href="<?php echo base_url('users/create') ?>" class="btn btn-primary mb-3">Tambah User</a>
+            <a href="<?php echo base_url('users/create') ?>" class="btn btn-primary mb-3">Tambah Pengguna</a>
           <?php endif; ?>
             </div>
             <!-- /.box-header -->

@@ -7,7 +7,7 @@
   <div class="container-fluid px-3">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Manage Pesanan</h1>
+            <h1 class="m-0 mb-1 text-dark">Pesanan Baru</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -42,46 +42,47 @@
 
 
         <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Pesanan Baru</h3>
-          </div>
+
           <!-- /.box-header -->
           <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal">
               <div class="box-body">
 
+              <?php if(validation_errors()): ?>
+                <div class="callout callout-danger">
                 <?php echo validation_errors(); ?>
+                </div>
+                <?php endif; ?>
 
-                <div class="form-group">
-                  <label for="gross_amount" class="col-sm-12 control-label">Tanggal: <?php echo date('Y-m-d') ?></label>
-                  <label for="gross_amount" class="col-sm-12 control-label">Jam: <?php echo date('h:i a') ?></label>
+                <div class="form-group float-right">
+                  <label for="gross_amount" class="col-sm-12 control-label">Tanggal: <?php echo date('Y-m-d') ?> Jam: <?php echo date('h:i a') ?></label>
                 </div>
 
-                <div class="col-md-8 col-xs-12 float-left">
-
-                  <div class="form-group">
+                <div class="row">
+                <div class="col-md-6">
+                <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" autocomplete="off" />
+                      <input type="text" class="form-control form-control-sm" id="customer_name" name="customer_name" placeholder="Enter Customer Name" autocomplete="off" />
                     </div>
-                  </div>
+                </div>
 
-                  <div class="form-group">
+                <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" autocomplete="off">
+                      <input type="text" class="form-control form-control-sm" id="customer_address" name="customer_address" placeholder="Enter Customer Address" autocomplete="off">
                     </div>
-                  </div>
+                </div>
 
-                  <div class="form-group">
+                <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" autocomplete="off">
+                      <input type="text" class="form-control form-control-sm" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" autocomplete="off">
                     </div>
-                  </div>
+                </div>
+                </div>
                 </div>
                 
                 
-                <br /> <br/>
                 <table class="table table-bordered" id="product_info_table">
                   <thead>
                     <tr>
@@ -103,37 +104,36 @@
                             <?php endforeach ?>
                           </select>
                         </td>
-                        <td><input type="text" name="qty[]" id="qty_1" class="form-control" required onkeyup="getTotal(1)"></td>
+                        <td><input type="text" name="qty[]" id="qty_1" class="form-control form-control-sm" required onkeyup="getTotal(1)"></td>
                         <td>
-                          <input type="text" name="rate[]" id="rate_1" class="form-control" disabled autocomplete="off">
+                          <input type="text" name="rate[]" id="rate_1" class="form-control form-control-sm" disabled autocomplete="off">
                           <input type="hidden" name="rate_value[]" id="rate_value_1" class="form-control" autocomplete="off">
                         </td>
                         <td>
-                          <input type="text" name="amount[]" id="amount_1" class="form-control" disabled autocomplete="off">
+                          <input type="text" name="amount[]" id="amount_1" class="form-control form-control-sm" disabled autocomplete="off">
                           <input type="hidden" name="amount_value[]" id="amount_value_1" class="form-control" autocomplete="off">
                         </td>
                         <td><button type="button" class="btn btn-default" onclick="removeRow('1')"><i class="fas fa-trash"></i></button></td>
                      </tr>
                    </tbody>
                 </table>
+              
 
-                <br /> <br/>
-
-                <div class="col-md-8 col-xs-12">
-
+                <div class="row">
+                <div class="col-md-4 ml-auto">
                   <div class="form-group">
                     <label for="gross_amount" class="col-sm-5 control-label">Gross Amount</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="gross_amount" name="gross_amount" disabled autocomplete="off">
-                      <input type="hidden" class="form-control" id="gross_amount_value" name="gross_amount_value" autocomplete="off">
+                      <input type="text" class="form-control form-control-sm" id="gross_amount" name="gross_amount" disabled autocomplete="off">
+                      <input type="hidden" class="form-control form-control-sm" id="gross_amount_value" name="gross_amount_value" autocomplete="off">
                     </div>
                   </div>
                   <?php if($is_service_enabled == true): ?>
                   <div class="form-group">
                     <label for="service_charge" class="col-sm-5 control-label">S-Charge <?php echo $company_data['service_charge_value'] ?> %</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="service_charge" name="service_charge" disabled autocomplete="off">
-                      <input type="hidden" class="form-control" id="service_charge_value" name="service_charge_value" autocomplete="off">
+                      <input type="text" class="form-control form-control-sm" id="service_charge" name="service_charge" disabled autocomplete="off">
+                      <input type="hidden" class="form-control form-control-sm" id="service_charge_value" name="service_charge_value" autocomplete="off">
                     </div>
                   </div>
                   <?php endif; ?>
@@ -141,25 +141,25 @@
                   <div class="form-group">
                     <label for="vat_charge" class="col-sm-5 control-label">Vat <?php echo $company_data['vat_charge_value'] ?> %</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="vat_charge" name="vat_charge" disabled autocomplete="off">
-                      <input type="hidden" class="form-control" id="vat_charge_value" name="vat_charge_value" autocomplete="off">
+                      <input type="text" class="form-control form-control-sm" id="vat_charge" name="vat_charge" disabled autocomplete="off">
+                      <input type="hidden" class="form-control form-control-sm" id="vat_charge_value" name="vat_charge_value" autocomplete="off">
                     </div>
                   </div>
                   <?php endif; ?>
                   <div class="form-group">
                     <label for="discount" class="col-sm-5 control-label">Discount</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="discount" name="discount" placeholder="Discount" onkeyup="subAmount()" autocomplete="off">
+                      <input type="text" class="form-control form-control-sm" id="discount" name="discount" placeholder="Discount" onkeyup="subAmount()" autocomplete="off">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="net_amount" class="col-sm-5 control-label">Net Amount</label>
                     <div class="col-sm-7">
-                      <input type="text" class="form-control" id="net_amount" name="net_amount" disabled autocomplete="off">
-                      <input type="hidden" class="form-control" id="net_amount_value" name="net_amount_value" autocomplete="off">
+                      <input type="text" class="form-control form-control-sm" id="net_amount" name="net_amount" disabled autocomplete="off">
+                      <input type="hidden" class="form-control form-control-sm" id="net_amount_value" name="net_amount_value" autocomplete="off">
                     </div>
                   </div>
-
+                </div>
                 </div>
               </div>
               <!-- /.box-body -->
@@ -167,8 +167,8 @@
               <div class="box-footer">
                 <input type="hidden" name="service_charge_rate" value="<?php echo $company_data['service_charge_value'] ?>" autocomplete="off">
                 <input type="hidden" name="vat_charge_rate" value="<?php echo $company_data['vat_charge_value'] ?>" autocomplete="off">
-                <button type="submit" class="btn btn-primary">Create Order</button>
-                <a href="<?php echo base_url('orders/') ?>" class="btn btn-warning">Back</a>
+                <button type="submit" class="btn btn-primary">Buat Pesanan</button>
+                <a href="<?php echo base_url('orders/') ?>" class="btn btn-warning">Kembali</a>
               </div>
             </form>
           <!-- /.box-body -->
@@ -189,14 +189,16 @@
   var base_url = "<?php echo base_url(); ?>";
 
   $(document).ready(function() {
-    $(".select_group").select2()
+    $(".select_group").select2({
+      theme: 'bootstrap4'
+    })
     // $("#description").wysihtml5();
 
     $("#mainOrdersNav").addClass('active');
     $("#addOrderNav").addClass('active');
     
-    var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' + 
-        'onclick="alert(\'Call your custom code here.\')">' +
+    var btnCust = '<button type="button" class="btn btn-secondary" title="Tambahkan tag gambar" ' + 
+        'onclick="alert(\'Hubungi kode kustom Anda di sini.\')">' +
         '<i class="glyphicon glyphicon-tag"></i>' +
         '</button>'; 
   
@@ -223,9 +225,9 @@
                         
                       html += '</select>'+
                     '</td>'+ 
-                    '<td><input type="number" name="qty[]" id="qty_'+row_id+'" class="form-control" onkeyup="getTotal('+row_id+')"></td>'+
-                    '<td><input type="text" name="rate[]" id="rate_'+row_id+'" class="form-control" disabled><input type="hidden" name="rate_value[]" id="rate_value_'+row_id+'" class="form-control"></td>'+
-                    '<td><input type="text" name="amount[]" id="amount_'+row_id+'" class="form-control" disabled><input type="hidden" name="amount_value[]" id="amount_value_'+row_id+'" class="form-control"></td>'+
+                    '<td><input type="number" name="qty[]" id="qty_'+row_id+'" class="form-control form-control-sm" onkeyup="getTotal('+row_id+')"></td>'+
+                    '<td><input type="text" name="rate[]" id="rate_'+row_id+'" class="form-control form-control-sm" disabled><input type="hidden" name="rate_value[]" id="rate_value_'+row_id+'" class="form-control"></td>'+
+                    '<td><input type="text" name="amount[]" id="amount_'+row_id+'" class="form-control form-control-sm" disabled><input type="hidden" name="amount_value[]" id="amount_value_'+row_id+'" class="form-control form-control-sm"></td>'+
                     '<td><button type="button" class="btn btn-default" onclick="removeRow(\''+row_id+'\')"><i class="fas fa-trash"></i></button></td>'+
                     '</tr>';
 
@@ -236,7 +238,9 @@
                 $("#product_info_table tbody").html(html);
               }
 
-              $(".product").select2();
+              $(".product").select2({
+                theme: 'bootstrap4'
+              });
 
           }
         });
