@@ -5,9 +5,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header"> 
     <div class="container-fluid px-3">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Master Grup</h1>
+            <h1 class="m-0 text-dark">Master Grup</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -40,14 +40,14 @@
 
           
 
-          <div class="box">
-            <div class="box-header">
+          <div class="card">
+            <div class="card-header">
             <?php if(in_array('createGroup', $user_permission)): ?>
-            <a href="<?php echo base_url('groups/create') ?>" class="btn btn-primary mb-3">Tambah Grup</a>
+            <a href="<?php echo base_url('groups/create') ?>" class="btn btn-primary">Tambah Grup</a>
           <?php endif; ?>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="card-body">
               <table id="groupTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -96,8 +96,8 @@
   <script type="text/javascript">
     $(document).ready(function() {
       $('#groupTable').DataTable();
-
-      $("#mainGroupNav").addClass('active');
-      $("#manageGroupNav").addClass('active');
+      $("#mainGroupNav").addClass('menu-is-opening menu-open');
+      $("#GroupNav").addClass('active');
+      $("#manageGroupNav .nav-link").addClass('active');
     });
   </script>

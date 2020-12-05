@@ -5,9 +5,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <div class="container-fluid px-3">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Master Perusahaan</h1>
+            <h1 class="m-0 text-dark">Master Perusahaan</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -38,10 +38,10 @@
             </div>
           <?php endif; ?>
  
-          <div class="box">
+          <div class="card">
 
             <form role="form" action="<?php base_url('company/update') ?>" method="post">
-              <div class="box-body">
+              <div class="card-body">
 
                 <?php echo validation_errors(); ?>
 
@@ -92,7 +92,7 @@
               </div>
               <!-- /.box-body -->
 
-              <div class="box-footer">
+              <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
               </div>
             </form>
@@ -110,8 +110,10 @@
   <!-- /.content-wrapper -->
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    $("#companyNav").addClass('active');
+  $(document).ready(function() { 
+    $("#mainMasterNav").addClass('menu-is-opening menu-open');
+    $("#MasterNav").addClass('active');
+    $("#companyNav .nav-link").addClass('active');
     $("#message").wysihtml5();
   });
 </script>

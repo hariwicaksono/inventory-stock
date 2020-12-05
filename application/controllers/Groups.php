@@ -43,6 +43,8 @@ class Groups extends Admin_Controller
 			redirect('dashboard', 'refresh');
 		}
 
+		$this->data['page_title'] = 'Tambah Grup'; 
+
 		$this->form_validation->set_rules('group_name', 'Group name', 'required');
 
         if ($this->form_validation->run() == TRUE) {

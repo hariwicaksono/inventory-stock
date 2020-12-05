@@ -3,9 +3,9 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
   <div class="container-fluid px-3">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Manage Pesanan</h1>
+            <h1 class="m-0 text-dark">Manage Pesanan</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -38,14 +38,14 @@
           </div>
         <?php endif; ?>
 
-        <div class="box">
-          <div class="box-header">
+        <div class="card">
+          <div class="card-header">
           <?php if(in_array('createOrder', $user_permission)): ?>
-            <a href="<?php echo base_url('orders/create') ?>" class="btn btn-primary mb-3">Tambah Pesanan</a>
+            <a href="<?php echo base_url('orders/create') ?>" class="btn btn-primary">Tambah Pesanan</a>
           <?php endif; ?>
           </div>
           <!-- /.box-header -->
-          <div class="box-body">
+          <div class="card-body">
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
@@ -84,8 +84,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Hapus Pesanan</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
 
       <form role="form" action="<?php echo base_url('orders/remove') ?>" method="post" id="removeForm">
@@ -112,8 +112,9 @@ var base_url = "<?php echo base_url(); ?>";
 
 $(document).ready(function() {
 
-  $("#mainOrdersNav").addClass('active');
-  $("#manageOrdersNav").addClass('active');
+  $("#mainOrdersNav").addClass('menu-is-opening menu-open');
+  $("#OrdersNav").addClass('active');
+  $("#manageOrdersNav .nav-link").addClass('active');
 
   // initialize the datatable 
   manageTable = $('#manageTable').DataTable({

@@ -5,9 +5,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <div class="container-fluid px-3">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Edit Pengguna</h1>
+            <h1 class="m-0 text-dark">Edit Pengguna</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -38,10 +38,10 @@
             </div>
           <?php endif; ?>
 
-          <div class="box">
+          <div class="card">
  
             <form role="form" action="<?php base_url('users/create') ?>" method="post">
-              <div class="box-body">
+              <div class="card-body">
 
                 <?php echo validation_errors(); ?>
 
@@ -118,7 +118,7 @@
               </div>
               <!-- /.box-body -->
 
-              <div class="box-footer">
+              <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Save Changes</button>
                 <a href="<?php echo base_url('users/') ?>" class="btn btn-warning">Back</a>
               </div>
@@ -142,7 +142,8 @@
       theme: 'bootstrap4'
     })
 
-    $("#mainUserNav").addClass('active');
-    $("#manageUserNav").addClass('active');
+    $("#mainUserNav").addClass('menu-is-opening menu-open');
+    $("#UserNav").addClass('active');
+    $("#manageUserNav .nav-link").addClass('active');
   });
 </script>

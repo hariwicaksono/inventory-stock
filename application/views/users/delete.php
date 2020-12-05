@@ -1,22 +1,25 @@
-
-
-  <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Manage
-        <small>Groups</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="<?php echo base_url('users/') ?>">Users</a></li>
-        <li class="active">Delete</li>
-      </ol>
+    <div class="container-fluid px-3">
+        <div class="row">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Hapus Pengguna</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item active">Pengguna</li>
+          </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
     <section class="content">
+    <div class="container-fluid px-3 pb-3">
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-md-12 col-xs-12">
@@ -33,18 +36,22 @@
             </div>
           <?php endif; ?>
 
-          <h1>Do you really want to remove ?</h1>
+          <div class="card">
+          <div class="card-body">
+          <h3>Apakah Anda benar-benar ingin menghapus?</h3>
 
           <form action="<?php echo base_url('users/delete/'.$id) ?>" method="post">
-            <input type="submit" class="btn btn-primary" name="confirm" value="Confirm">
-            <a href="<?php echo base_url('users') ?>" class="btn btn-warning">Cancel</a>
+            <input type="submit" class="btn btn-primary" name="confirm" value="Konfirmasi">
+            <a href="<?php echo base_url('users') ?>" class="btn btn-warning">Batal</a>
           </form>
+          </div>
+          </div>
 
         </div>
         <!-- col-md-12 -->
       </div>
       <!-- /.row -->
-      
+      </div>
 
     </section>
     <!-- /.content -->
@@ -54,7 +61,8 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $("#mainUserNav").addClass('active');
-    $("#manageUserNav").addClass('active');
+    $("#mainUserNav").addClass('menu-is-opening menu-open');
+      $("#UserNav").addClass('active');
+      $("#manageUserNav .nav-link").addClass('active');
   });
 </script>

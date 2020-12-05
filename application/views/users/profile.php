@@ -5,9 +5,9 @@
     <!-- Content Header (Page header) --> 
     <section class="content-header">
     <div class="container-fluid px-3">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Profil Pengguna</h1>
+            <h1 class="m-0 text-dark">Profil Pengguna</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -26,9 +26,9 @@
       <div class="row">
         <div class="col-md-12 col-xs-12">
 
-          <div class="box">
+          <div class="card">
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="card-body">
               <table class="table table-bordered table-condensed table-hovered">
                 <tr>
                   <th>Username</th>
@@ -39,23 +39,23 @@
                   <td><?php echo $user_data['email']; ?></td>
                 </tr>
                 <tr>
-                  <th>First Name</th>
+                  <th>Nama Depan</th>
                   <td><?php echo $user_data['firstname']; ?></td>
                 </tr>
                 <tr>
-                  <th>Last Name</th>
+                  <th>Nama Belakang</th>
                   <td><?php echo $user_data['lastname']; ?></td>
                 </tr>
                 <tr>
-                  <th>Gender</th>
-                  <td><?php echo ($user_data['gender'] == 1) ? 'Male' : 'Gender'; ?></td>
+                  <th>Jenis Kelamin</th>
+                  <td><?php echo ($user_data['gender'] == 1) ? 'Laki-laki' : 'Perempuan'; ?></td>
                 </tr>
                 <tr>
-                  <th>Phone</th>
+                  <th>Telepon</th>
                   <td><?php echo $user_data['phone']; ?></td>
                 </tr>
                 <tr>
-                  <th>Group</th>
+                  <th>Grup</th>
                   <td><span class="label label-info"><?php echo $user_group['group_name']; ?></span></td>
                 </tr>
               </table>
@@ -73,4 +73,8 @@
   </div>
   <!-- /.content-wrapper -->
 
- 
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#viewProfile .nav-link").addClass('active'); 
+    }); 
+  </script>

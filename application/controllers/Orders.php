@@ -26,7 +26,7 @@ class Orders extends Admin_Controller
             redirect('dashboard', 'refresh');
         }
 
-		$this->data['page_title'] = 'Manage Pesanan';
+		$this->data['page_title'] = 'Pesanan';
 		$this->render_template('orders/index', $this->data);		
 	}
 
@@ -64,10 +64,10 @@ class Orders extends Admin_Controller
 			}
 
 			if($value['paid_status'] == 1) {
-				$paid_status = '<span class="label label-success">Paid</span>';	
+				$paid_status = '<span class="badge badge-success">Dibayar</span>';	
 			}
 			else {
-				$paid_status = '<span class="label label-warning">Not Paid</span>';
+				$paid_status = '<span class="badge badge-warning">Belum Dibayar</span>';
 			}
 
 			$result['data'][$key] = array(
@@ -167,7 +167,7 @@ class Orders extends Admin_Controller
 			redirect('dashboard', 'refresh');
 		}
 
-		$this->data['page_title'] = 'Update Order';
+		$this->data['page_title'] = 'Update Pesanan';
 
 		$this->form_validation->set_rules('product[]', 'Product name', 'trim|required');
 		
@@ -258,7 +258,7 @@ class Orders extends Admin_Controller
 			$company_info = $this->model_company->getCompanyData(1);
 
 			$order_date = date('d/m/Y', $order_data['date_time']);
-			$paid_status = ($order_data['paid_status'] == 1) ? "Paid" : "Unpaid";
+			$paid_status = ($order_data['paid_status'] == 1) ? "Dibayar" : "Belum Dibayar";
 
 			$html = '<!-- Main content -->
 			<!DOCTYPE html>
@@ -295,10 +295,10 @@ class Orders extends Admin_Controller
 			      
 			      <div class="col-sm-4 invoice-col">
 	
-			        <b>Bill ID:</b> '.$order_data['bill_no'].'<br/>
-			        <b>Name:</b> '.$order_data['customer_name'].'<br/>
-			        <b>Address:</b> '.$order_data['customer_address'].' <br />
-			        <b>Phone:</b> '.$order_data['customer_phone'].'
+			        <b>No. Transaksi:</b> '.$order_data['bill_no'].'<br/>
+			        <b>Nama:</b> '.$order_data['customer_name'].'<br/>
+			        <b>Alamat:</b> '.$order_data['customer_address'].' <br />
+			        <b>Telepon:</b> '.$order_data['customer_phone'].'
 			      </div>
 			      <!-- /.col -->
 			    </div>
@@ -310,10 +310,10 @@ class Orders extends Admin_Controller
 			        <table class="table table-striped">
 			          <thead>
 			          <tr>
-			            <th>Product name</th>
-			            <th>Price</th>
+			            <th>Nama Produk</th>
+			            <th>Harga</th>
 			            <th>Qty</th>
-			            <th>Amount</th>
+			            <th>Total</th>
 			          </tr>
 			          </thead>
 			          <tbody>'; 
@@ -344,35 +344,35 @@ class Orders extends Admin_Controller
 			        <div class="table-responsive">
 			          <table class="table">
 			            <tr>
-			              <th style="width:50%">Gross Amount:</th>
+			              <th style="width:50%">Jumlah:</th>
 			              <td>'.$order_data['gross_amount'].'</td>
 			            </tr>';
 
 			            if($order_data['service_charge'] > 0) {
 			            	$html .= '<tr>
-				              <th>Service Charge ('.$order_data['service_charge_rate'].'%)</th>
+				              <th>Biaya Layanan ('.$order_data['service_charge_rate'].'%)</th>
 				              <td>'.$order_data['service_charge'].'</td>
 				            </tr>';
 			            }
 
 			            if($order_data['vat_charge'] > 0) {
 			            	$html .= '<tr>
-				              <th>Vat Charge ('.$order_data['vat_charge_rate'].'%)</th>
+				              <th>PPN ('.$order_data['vat_charge_rate'].'%)</th>
 				              <td>'.$order_data['vat_charge'].'</td>
 				            </tr>';
 			            }
 			            
 			            
 			            $html .=' <tr>
-			              <th>Discount:</th>
+			              <th>Diskon:</th>
 			              <td>'.$order_data['discount'].'</td>
 			            </tr>
 			            <tr>
-			              <th>Net Amount:</th>
+			              <th>Total Harga:</th>
 			              <td>'.$order_data['net_amount'].'</td>
 			            </tr>
 			            <tr>
-			              <th>Paid Status:</th>
+			              <th>Status Bayar:</th>
 			              <td>'.$paid_status.'</td>
 			            </tr>
 			          </table>

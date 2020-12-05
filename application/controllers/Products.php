@@ -93,6 +93,8 @@ class Products extends Admin_Controller
             redirect('dashboard', 'refresh');
         }
 
+        $this->data['page_title'] = 'Tambah Produk';
+
 		$this->form_validation->set_rules('product_name', 'Product name', 'trim|required');
 		$this->form_validation->set_rules('sku', 'SKU', 'trim|required');
 		$this->form_validation->set_rules('price', 'Price', 'trim|required');
@@ -199,6 +201,8 @@ class Products extends Admin_Controller
         if(!$product_id) {
             redirect('dashboard', 'refresh');
         }
+
+        $this->data['page_title'] = 'Ubah Produk';
 
         $this->form_validation->set_rules('product_name', 'Product name', 'trim|required');
         $this->form_validation->set_rules('sku', 'SKU', 'trim|required');

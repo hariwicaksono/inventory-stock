@@ -3,9 +3,9 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
   <div class="container-fluid px-3">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Manage Produk</h1>
+            <h1 class="m-0 text-dark">Manage Produk</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -40,14 +40,14 @@
 
         
 
-        <div class="box">
-          <div class="box-header">
+        <div class="card">
+          <div class="card-header">
             <?php if(in_array('createProduct', $user_permission)): ?>
-            <a href="<?php echo base_url('products/create') ?>" class="btn btn-primary mb-3">Tambah</a>
+            <a href="<?php echo base_url('products/create') ?>" class="btn btn-primary">Tambah Produk</a>
           <?php endif; ?>
           </div>
           <!-- /.box-header -->
-          <div class="box-body">
+          <div class="card-body">
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
@@ -100,7 +100,7 @@
           <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
       </form>
-
+ 
 
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -115,8 +115,10 @@ var base_url = "<?php echo base_url(); ?>";
 
 $(document).ready(function() {
 
-  $("#mainProductNav").addClass('active');
-
+  $("#mainProductNav").addClass('menu-is-opening menu-open');
+  $("#ProductNav").addClass('active');
+  $("#manageProductNav .nav-link").addClass('active');
+  
   // initialize the datatable 
   manageTable = $('#manageTable').DataTable({
     'ajax': base_url + 'products/fetchProductData',

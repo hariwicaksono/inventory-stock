@@ -40,14 +40,14 @@
 
         
 
-        <div class="box">
-          <div class="box-header">
+        <div class="card">
+          <div class="card-header">
           <?php if(in_array('createBrand', $user_permission)): ?>
-          <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addBrandModal">Tambah Merek</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addBrandModal">Tambah Merek</button>
         <?php endif; ?>
           </div>
           <!-- /.box-header -->
-          <div class="box-body">
+          <div class="card-body">
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
@@ -86,7 +86,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
       </div>
-
+ 
       <form role="form" action="<?php echo base_url('brands/create') ?>" method="post" id="createBrandForm">
 
         <div class="modal-body">
@@ -195,8 +195,9 @@ var manageTable;
 
 $(document).ready(function() {
 
-  $("#brandNav").addClass('active');
-
+  $("#mainMasterNav").addClass('menu-is-opening menu-open');
+  $("#MasterNav").addClass('active');
+  $("#brandNav .nav-link").addClass('active');
   // initialize the datatable 
   manageTable = $('#manageTable').DataTable({
     'ajax': 'fetchBrandData',

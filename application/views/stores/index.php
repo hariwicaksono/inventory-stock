@@ -3,9 +3,9 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
   <div class="container-fluid px-3">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Master Toko</h1>
+            <h1 class="m-0 text-dark">Master Toko</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -38,14 +38,14 @@
           </div>
         <?php endif; ?>
 
-        <div class="box">
-          <div class="box-header">
+        <div class="card">
+          <div class="card-header">
           <?php if(in_array('createStore', $user_permission)): ?>
-          <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addModal">Tambah Toko</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Tambah Toko</button>
         <?php endif; ?>
           </div>
           <!-- /.box-header -->
-          <div class="box-body">
+          <div class="card-body">
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
@@ -193,8 +193,10 @@ var manageTable;
 
 $(document).ready(function() {
 
-  $("#storeNav").addClass('active');
 
+  $("#mainMasterNav").addClass('menu-is-opening menu-open');
+  $("#MasterNav").addClass('active');
+  $("#storeNav .nav-link").addClass('active');
   // initialize the datatable 
   manageTable = $('#manageTable').DataTable({
     'ajax': 'fetchStoresData',

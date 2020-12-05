@@ -1,14 +1,14 @@
 <?php 
 
 class Users extends Admin_Controller 
-{
+{ 
 	public function __construct()
 	{
 		parent::__construct();
 
 		$this->not_logged_in();
 		
-		$this->data['page_title'] = 'Users';
+		$this->data['page_title'] = 'Pengguna';
 		
 
 		$this->load->model('model_users');
@@ -43,6 +43,8 @@ class Users extends Admin_Controller
 		if(!in_array('createUser', $this->permission)) {
 			redirect('dashboard', 'refresh');
 		}
+
+		$this->data['page_title'] = 'Tambah Pengguna';
 
 		$this->form_validation->set_rules('groups', 'Group', 'required');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]|is_unique[users.username]');
@@ -98,6 +100,8 @@ class Users extends Admin_Controller
 		if(!in_array('updateUser', $this->permission)) {
 			redirect('dashboard', 'refresh');
 		}
+
+		$this->data['page_title'] = 'Edit Pengguna';
 
 		if($id) {
 			$this->form_validation->set_rules('groups', 'Group', 'required');
@@ -220,6 +224,8 @@ class Users extends Admin_Controller
 			redirect('dashboard', 'refresh');
 		}
 
+		$this->data['page_title'] = 'Profil Pengguna';
+
 		$user_id = $this->session->userdata('id');
 
 		$user_data = $this->model_users->getUserData($user_id);
@@ -236,7 +242,7 @@ class Users extends Admin_Controller
 		if(!in_array('updateSetting', $this->permission)) {
 			redirect('dashboard', 'refresh');
 		}
-
+		$this->data['page_title'] = 'Pengaturan';
 		$id = $this->session->userdata('id');
 
 		if($id) {

@@ -138,7 +138,7 @@ class Brands extends Admin_Controller
 		if(!in_array('updateBrand', $this->permission)) {
 			redirect('dashboard', 'refresh');
 		}
-
+ 
 		$response = array();
 
 		if($id) {

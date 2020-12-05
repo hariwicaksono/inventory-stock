@@ -5,9 +5,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <div class="container-fluid px-3">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Tambah Grup</h1>
+            <h1 class="m-0 text-dark">Tambah Grup</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -38,12 +38,10 @@
             </div>
           <?php endif; ?>
 
-          <div class="box">
-            <div class="box-header">
-             
-            </div>
+          <div class="card">
+
             <form role="form" action="<?php base_url('groups/create') ?>" method="post">
-              <div class="box-body">
+              <div class="card-body">
 
                 <?php echo validation_errors(); ?>
 
@@ -156,7 +154,7 @@
               </div>
               <!-- /.box-body -->
 
-              <div class="box-footer">
+              <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
                 <a href="<?php echo base_url('groups/') ?>" class="btn btn-warning">Kembali</a>
               </div>
@@ -176,8 +174,9 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $("#mainGroupNav").addClass('active');
-    $("#addGroupNav").addClass('active');
+    $("#mainGroupNav").addClass('menu-is-opening menu-open');
+      $("#GroupNav").addClass('active');
+      $("#addGroupNav .nav-link").addClass('active');
 
     $('input[type="checkbox"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',

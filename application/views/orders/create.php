@@ -5,9 +5,9 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
   <div class="container-fluid px-3">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Pesanan Baru</h1>
+            <h1 class="m-0 text-dark">Pesanan Baru</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -41,11 +41,11 @@
         <?php endif; ?>
 
 
-        <div class="box">
+        <div class="card">
 
           <!-- /.box-header -->
           <form role="form" action="<?php base_url('orders/create') ?>" method="post" class="form-horizontal">
-              <div class="box-body">
+              <div class="card-body">
 
               <?php if(validation_errors()): ?>
                 <div class="callout callout-danger">
@@ -53,43 +53,43 @@
                 </div>
                 <?php endif; ?>
 
-                <div class="form-group float-right">
-                  <label for="gross_amount" class="col-sm-12 control-label">Tanggal: <?php echo date('Y-m-d') ?> Jam: <?php echo date('h:i a') ?></label>
+                <div class="form-group">
+                  <label class="control-label">Tanggal: <?php echo date('Y-m-d') ?> Jam: <?php echo date('h:i a') ?></label>
                 </div>
 
                 <div class="row">
-                <div class="col-md-6">
+                <div class="col">
                 <div class="form-group">
-                    <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Name</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control form-control-sm" id="customer_name" name="customer_name" placeholder="Enter Customer Name" autocomplete="off" />
+                    <label for="" class="control-label" style="text-align:left;">Nama Pelanggan</label>
+                    
+                      <input type="text" class="form-control form-control-sm" id="customer_name" name="customer_name" placeholder="Nama Pelanggan" autocomplete="off" />
                     </div>
                 </div>
-
+                <div class="col">
                 <div class="form-group">
-                    <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Address</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control form-control-sm" id="customer_address" name="customer_address" placeholder="Enter Customer Address" autocomplete="off">
+                    <label for="" class="control-label" style="text-align:left;">Customer Address</label>
+                  
+                      <input type="text" class="form-control form-control-sm" id="customer_address" name="customer_address" placeholder="Alamat Pelanggan" autocomplete="off">
                     </div>
                 </div>
-
+                <div class="col">
                 <div class="form-group">
-                    <label for="gross_amount" class="col-sm-5 control-label" style="text-align:left;">Customer Phone</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control form-control-sm" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" autocomplete="off">
+                    <label for="" class="control-label" style="text-align:left;">Telepon Pelanggan</label>
+                   
+                      <input type="text" class="form-control form-control-sm" id="customer_phone" name="customer_phone" placeholder="Telepon Pelanggan" autocomplete="off">
                     </div>
                 </div>
-                </div>
+               
                 </div>
                 
                 
                 <table class="table table-bordered" id="product_info_table">
                   <thead>
                     <tr>
-                      <th style="width:50%">Product</th>
+                      <th style="width:50%">Produk</th>
                       <th style="width:10%">Qty</th>
-                      <th style="width:10%">Rate</th>
-                      <th style="width:20%">Amount</th>
+                      <th style="width:10%">Harga</th>
+                      <th style="width:20%">Total</th>
                       <th style="width:10%"><button type="button" id="add_row" class="btn btn-default"><i class="fa fa-plus"></i></button></th>
                     </tr>
                   </thead>
@@ -122,49 +122,49 @@
                 <div class="row">
                 <div class="col-md-4 ml-auto">
                   <div class="form-group">
-                    <label for="gross_amount" class="col-sm-5 control-label">Gross Amount</label>
-                    <div class="col-sm-7">
+                    <label for="gross_amount" class="control-label">Jumlah</label>
+                    
                       <input type="text" class="form-control form-control-sm" id="gross_amount" name="gross_amount" disabled autocomplete="off">
                       <input type="hidden" class="form-control form-control-sm" id="gross_amount_value" name="gross_amount_value" autocomplete="off">
-                    </div>
+                   
                   </div>
                   <?php if($is_service_enabled == true): ?>
                   <div class="form-group">
-                    <label for="service_charge" class="col-sm-5 control-label">S-Charge <?php echo $company_data['service_charge_value'] ?> %</label>
-                    <div class="col-sm-7">
+                    <label for="service_charge" class="control-label">Biaya Layanan <?php echo $company_data['service_charge_value'] ?> %</label>
+                    
                       <input type="text" class="form-control form-control-sm" id="service_charge" name="service_charge" disabled autocomplete="off">
                       <input type="hidden" class="form-control form-control-sm" id="service_charge_value" name="service_charge_value" autocomplete="off">
-                    </div>
+                    
                   </div>
                   <?php endif; ?>
                   <?php if($is_vat_enabled == true): ?>
                   <div class="form-group">
-                    <label for="vat_charge" class="col-sm-5 control-label">Vat <?php echo $company_data['vat_charge_value'] ?> %</label>
-                    <div class="col-sm-7">
+                    <label for="vat_charge" class="control-label">PPN <?php echo $company_data['vat_charge_value'] ?> %</label>
+                    
                       <input type="text" class="form-control form-control-sm" id="vat_charge" name="vat_charge" disabled autocomplete="off">
                       <input type="hidden" class="form-control form-control-sm" id="vat_charge_value" name="vat_charge_value" autocomplete="off">
-                    </div>
+                   
                   </div>
                   <?php endif; ?>
                   <div class="form-group">
-                    <label for="discount" class="col-sm-5 control-label">Discount</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control form-control-sm" id="discount" name="discount" placeholder="Discount" onkeyup="subAmount()" autocomplete="off">
-                    </div>
+                    <label for="discount" class="control-label">Diskon</label>
+                    
+                      <input type="text" class="form-control form-control-sm" id="discount" name="discount" placeholder="Diskon" onkeyup="subAmount()" autocomplete="off">
+                    
                   </div>
                   <div class="form-group">
-                    <label for="net_amount" class="col-sm-5 control-label">Net Amount</label>
-                    <div class="col-sm-7">
+                    <label for="net_amount" class="control-label">Total Harga</label>
+                    
                       <input type="text" class="form-control form-control-sm" id="net_amount" name="net_amount" disabled autocomplete="off">
                       <input type="hidden" class="form-control form-control-sm" id="net_amount_value" name="net_amount_value" autocomplete="off">
-                    </div>
+                   
                   </div>
                 </div>
                 </div>
               </div>
               <!-- /.box-body -->
-
-              <div class="box-footer">
+      
+              <div class="card-footer">
                 <input type="hidden" name="service_charge_rate" value="<?php echo $company_data['service_charge_value'] ?>" autocomplete="off">
                 <input type="hidden" name="vat_charge_rate" value="<?php echo $company_data['vat_charge_value'] ?>" autocomplete="off">
                 <button type="submit" class="btn btn-primary">Buat Pesanan</button>
@@ -194,8 +194,9 @@
     })
     // $("#description").wysihtml5();
 
-    $("#mainOrdersNav").addClass('active');
-    $("#addOrderNav").addClass('active');
+    $("#mainOrdersNav").addClass('menu-is-opening menu-open');
+    $("#OrdersNav").addClass('active');
+    $("#addOrderNav .nav-link").addClass('active');
     
     var btnCust = '<button type="button" class="btn btn-secondary" title="Tambahkan tag gambar" ' + 
         'onclick="alert(\'Hubungi kode kustom Anda di sini.\')">' +

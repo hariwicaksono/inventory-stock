@@ -30,7 +30,7 @@ class Reports extends Admin_Controller
 		$parking_data = $this->model_reports->getOrderData($today_year);
 		$this->data['report_years'] = $this->model_reports->getOrderYear();
 		
-
+ 
 		$final_parking_data = array();
 		foreach ($parking_data as $k => $v) {
 			

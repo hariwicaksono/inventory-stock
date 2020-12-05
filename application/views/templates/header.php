@@ -14,16 +14,10 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/dist/css/adminlte.min.css') ?>">
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') ?>">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>"> 
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/jqvmap/jqvmap.min.css') ?>">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') ?>">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/daterangepicker/daterangepicker.css') ?>">
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/summernote/summernote-bs4.css') ?>">
   <!-- bootstrap wysihtml5 - text editor -->
@@ -44,9 +38,35 @@
 
   <!-- jQuery -->
   <script src="<?php echo base_url('assets/adminlte/plugins/jquery/jquery.min.js') ?>"></script>
+   <!-- jQuery UI 1.11.4 -->
+   <script src="<?php echo base_url('assets/adminlte/plugins/jquery-ui/jquery-ui.min.js') ?>"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="<?php echo base_url('assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+  <!-- Select2 -->
+  <script src="<?php echo base_url('assets/adminlte/plugins/select2/js/select2.full.min.js') ?>"></script>
+  <!-- ChartJS -->
+  <script src="<?php echo base_url('assets/bower_components/Chart.js/Chart.js') ?>"></script>
+  <!-- Moment -->
+  <script src="<?php echo base_url('assets/adminlte/plugins/moment/moment.min.js') ?>"></script>
+  <script src="<?php echo base_url('assets/adminlte/plugins/moment/locale/id.js') ?>"></script>
+  <!-- Summernote -->
+  <script src="<?php echo base_url('assets/adminlte/plugins/summernote/summernote-bs4.min.js') ?>"></script>
+  <!-- overlayScrollbars -->
+  <script src="<?php echo base_url('assets/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') ?>"></script>
+  <!-- Bootstrap WYSIHTML5 -->
+  <script src="<?php echo base_url('assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') ?>"></script>
+  <!-- AdminLTE App -->
+  <script src="<?php echo base_url('assets/adminlte/dist/js/adminlte.js') ?>"></script>
+  <!-- DataTables -->
+  <script src="<?php echo base_url('assets/bower_components/datatables.net/js/jquery.dataTables.min.js') ?>"></script>
+  <script src="<?php echo base_url('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap4.min.js') ?>"></script>
+  <!-- Fileinput -->
   <script src="<?php echo base_url('assets/plugins/fileinput/fileinput.min.js') ?>"></script>
   <script src="<?php echo base_url('assets/plugins/fileinput/themes/fas/theme.min.js') ?>"></script>
-
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

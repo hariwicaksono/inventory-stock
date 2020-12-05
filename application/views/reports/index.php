@@ -3,9 +3,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <div class="container-fluid px-3">
-        <div class="row mb-2">
+        <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-1 text-dark">Laporan</h1>
+            <h1 class="m-0 text-dark">Laporan</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -26,13 +26,13 @@
         <div class="col-md-12 col-xs-12">
           <form class="form-inline" action="<?php echo base_url('reports/') ?>" method="POST">
             <div class="form-group">
-              <label for="date">Year</label>
+              <label for="date">Tahun</label>&nbsp;
               <select class="form-control" name="select_year" id="select_year">
                 <?php foreach ($report_years as $key => $value): ?>
                   <option value="<?php echo $value ?>" <?php if($value == $selected_year) { echo "selected"; } ?>><?php echo $value; ?></option>
                 <?php endforeach ?>
               </select>
-            </div>
+            </div>&nbsp;
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
         </div>
@@ -54,12 +54,12 @@
             </div>
           <?php endif; ?>
 
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Total Parking - Report</h3>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Total Pendapatan - Laporan</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="card-body">
               <div class="chart">
                   <canvas id="barChart" style="height: 250px"></canvas>
                 </div>
@@ -67,17 +67,17 @@
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Total Paid Orders - Report Data</h3>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Total Pesanan Dibayar - Data Laporan</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="card-body">
               <table id="datatables" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Month - Year</th>
-                  <th>Amount</th>
+                  <th>Bulan - Tahun</th>
+                  <th>Jumlah</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -97,7 +97,7 @@
                 </tbody>
                 <tbody>
                   <tr>
-                    <th>Total Amount</th>
+                    <th>Total Jumlah</th>
                     <th>
                       <?php //echo $company_currency . ' ' . array_sum($parking_data); ?>
                       <?php echo array_sum($results); ?>
@@ -122,7 +122,7 @@
   <script type="text/javascript">
 
     $(document).ready(function() {
-      $("#reportNav").addClass('active');
+      $("#reportNav .nav-link").addClass('active');
     }); 
 
     var report_data = <?php echo '[' . implode(',', $results) . ']'; ?>;
@@ -189,4 +189,4 @@
     barChartOptions.datasetFill = false
     barChart.Bar(barChartData, barChartOptions)
   })
-  </script>
+  </script> 
