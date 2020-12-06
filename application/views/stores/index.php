@@ -5,12 +5,12 @@
   <div class="container-fluid px-3">
         <div class="row">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Master Toko</h1>
+            <h1 class="m-0 text-dark">Master Suplier</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="./">Home</a></li>
-            <li class="breadcrumb-item active">Master Toko</li>
+            <li class="breadcrumb-item active">Master Suplier</li>
           </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -41,7 +41,7 @@
         <div class="card">
           <div class="card-header">
           <?php if(in_array('createStore', $user_permission)): ?>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Tambah Toko</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Tambah Suplier</button>
         <?php endif; ?>
           </div>
           <!-- /.box-header -->
@@ -49,7 +49,7 @@
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Nama Toko</th>
+                <th>Nama Suplier</th>
                 <th>Status</th>
                 <?php if(in_array('updateStore', $user_permission) || in_array('deleteStore', $user_permission)): ?>
                   <th>Aksi</th>
@@ -79,7 +79,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Tambah Toko</h4>
+        <h4 class="modal-title">Tambah Suplier</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -90,7 +90,7 @@
         <div class="modal-body">
 
           <div class="form-group">
-            <label for="brand_name">Nama Toko</label>
+            <label for="brand_name">Nama Suplier</label>
             <input type="text" class="form-control" id="store_name" name="store_name" placeholder="Masukkan nama toko" autocomplete="off">
           </div>
           <div class="form-group">
@@ -121,7 +121,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Edit Toko</h4>
+        <h4 class="modal-title">Edit Suplier</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -133,7 +133,7 @@
           <div id="messages"></div>
 
           <div class="form-group">
-            <label for="edit_brand_name">Nama Toko</label>
+            <label for="edit_brand_name">Nama Suplier</label>
             <input type="text" class="form-control" id="edit_store_name" name="edit_store_name" placeholder="Masukkan nama toko" autocomplete="off">
           </div>
           <div class="form-group">
@@ -164,7 +164,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Hapus Toko</h4>
+        <h4 class="modal-title">Hapus Suplier</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>

@@ -54,7 +54,7 @@
                 <?php endif; ?>
 
                 <div class="form-group">
-                  <label class="control-label">Tanggal: <?php echo date('Y-m-d') ?> Jam: <?php echo date('h:i a') ?></label>
+                  <label class="control-label">Tanggal: <?php echo date('Y-m-d') ?> Jam: <?php echo date('H:i') ?></label>
                 </div>
 
                 <div class="row">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col">
                 <div class="form-group">
-                    <label for="" class="control-label" style="text-align:left;">Customer Address</label>
+                    <label for="" class="control-label" style="text-align:left;">Alamat Pelanggan</label>
                   
                       <input type="text" class="form-control form-control-sm" id="customer_address" name="customer_address" placeholder="Alamat Pelanggan" autocomplete="off">
                     </div>

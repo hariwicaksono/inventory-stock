@@ -43,7 +43,11 @@
             <form role="form" action="<?php base_url('company/update') ?>" method="post">
               <div class="card-body">
 
+              <?php if(validation_errors()): ?>
+                <div class="callout callout-danger">
                 <?php echo validation_errors(); ?>
+                </div>
+                <?php endif; ?>
 
                 <div class="form-group">
                   <label for="company_name">Nama Perusahaan</label>

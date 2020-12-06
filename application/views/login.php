@@ -10,20 +10,17 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/fontawesome-free/css/all.min.css') ?>">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/bower_components/Ionicons/css/ionicons.min.css') ?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/dist/css/adminlte.min.css') ?>">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
-
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+<style>
+html{font-size: 100%}
+</style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box" style="margin-top: -150px">
@@ -33,7 +30,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Masuk untuk memulai sesi anda</p>
 
     <?php if(!empty(validation_errors()))
     echo "<div class='callout callout-danger'>".validation_errors()."</div>"; 
@@ -45,7 +42,7 @@
 
     <form action="<?php echo base_url('auth/login') ?>" method="post">
       <div class="input-group mb-3">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email" autocomplete="on">
         <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -61,17 +58,9 @@
           </div>
       </div>
       <div class="row">
-        <div class="col-8">
-          <div class="icheck-primary">
-            <input type="checkbox" id="remember"> 
-            <label for="remember">
-              Remember Me
-            </label>
-          </div>
-        </div>
         <!-- /.col -->
-        <div class="col-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        <div class="col-12">
+          <button type="submit" class="btn btn-default btn-lg bg-indigo btn-block">Masuk</button>
         </div>
         <!-- /.col -->
       </div>

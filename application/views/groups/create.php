@@ -43,7 +43,11 @@
             <form role="form" action="<?php base_url('groups/create') ?>" method="post">
               <div class="card-body">
 
+              <?php if(validation_errors()): ?>
+                <div class="callout callout-danger">
                 <?php echo validation_errors(); ?>
+                </div>
+                <?php endif; ?>
 
                 <div class="form-group">
                   <label for="group_name">Nama Grup</label>
@@ -64,86 +68,86 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Users</td>
+                        <td>Pengguna</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createUser" value="createUser"><label for="createUser"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateUser" value="updateUser" ><label for="updateUser"></label</div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewUser" value="viewUser"><label for="viewUser"></label</div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="deleteUser" value="deleteUser"><label for="deleteUser"></label</div></td>
                       </tr>
                       <tr>
-                        <td>Groups</td>
+                        <td>Grup</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createGroup" value="createGroup"><label for="createGroup"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateGroup" value="updateGroup"><label for="updateGroup"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewGroup" value="viewGroup"><label for="viewGroup"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="deleteGroup" value="deleteGroup"><label for="deleteGroup"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Brands</td>
+                        <td>Merek</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createBrand" value="createBrand"><label for="createBrand"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateBrand" value="updateBrand"><label for="updateBrand"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewBrand" value="viewBrand"><label for="viewBrand"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="deleteBrand" value="deleteBrand"><label for="deleteBrand"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Category</td>
+                        <td>Kategori</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createCategory" value="createCategory"><label for="createCategory"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateCategory" value="updateCategory"><label for="updateCategory"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewCategory" value="viewCategory"><label for="viewCategory"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="deleteCategory" value="deleteCategory"><label for="deleteCategory"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Stores</td>
+                        <td>Suplier</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createStore" value="createStore"><label for="createStore"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateStore" value="updateStore"><label for="updateStore"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewStore" value="viewStore"><label for="viewStore"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="deleteStore" value="deleteStore"><label for="deleteStore"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Attributes</td>
+                        <td>Atribut</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createAttribute" value="createAttribute"><label for="createAttribute"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateAttribute" value="updateAttribute"><label for="updateAttribute"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewAttribute" value="viewAttribute"><label for="viewAttribute"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="deleteAttribute" value="deleteAttribute"><label for="deleteAttribute"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Products</td>
+                        <td>Produk</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createProduct" value="createProduct"><label for="createProduct"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateProduct" value="updateProduct"><label for="updateProduct"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewProduct" value="viewProduct"><label for="viewProduct"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="deleteProduct" value="deleteProduct"><label for="deleteProduct"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Orders</td>
+                        <td>Pesanan</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createOrder" value="createOrder"><label for="createOrder"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateOrder" value="updateOrder"><label for="updateOrder"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewOrder" value="viewOrder"><label for="viewOrder"></label></div></td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="deleteOrder" value="deleteOrder"><label for="deleteOrder"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Reports</td>
+                        <td>Laporan</td>
                         <td> - </td>
                         <td> - </td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewReports" value="viewReports"><label for="viewReports"></label></div></td>
                         <td> - </td>
                       </tr>
                       <tr>
-                        <td>Company</td>
+                        <td>Perusahaan</td>
                         <td> - </td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateCompany" value="updateCompany"><label for="updateCompany"></label></div></td>
                         <td> - </td>
                         <td> - </td>
                       </tr>
                       <tr>
-                        <td>Profile</td>
+                        <td>Profil</td>
                         <td> - </td>
                         <td> - </td>
-                        <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewProfile" value="viewProfile"><label for="viewProfile"></label></div></td>
+                        <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewProfil" value="viewProfile"><label for="viewProfil"></label></div></td>
                         <td> - </td>
                       </tr>
                       <tr>
-                        <td>Setting</td>
+                        <td>Pengaturan</td>
                         <td>-</td>
-                        <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateSetting" value="updateSetting"><label for="updateSetting"></label></div></td>
+                        <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updSetting" value="updateSetting"><label for="updSetting"></label></div></td>
                         <td> - </td>
                         <td> - </td>
                       </tr>

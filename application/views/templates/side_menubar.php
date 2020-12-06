@@ -105,6 +105,7 @@
             </li>
           <?php endif; ?>
 
+          <?php if(in_array('updateCompany', $user_permission)): ?>
           <li class="nav-item" id="mainMasterNav">
             <a href="#" class="nav-link" id="MasterNav">
             <i class="fas fa-cog nav-icon"></i>
@@ -137,7 +138,7 @@
           <?php if(in_array('createStore', $user_permission) || in_array('updateStore', $user_permission) || in_array('viewStore', $user_permission) || in_array('deleteStore', $user_permission)): ?>
             <li class="nav-item" id="storeNav">
               <a href="<?php echo base_url('stores/') ?>" class="nav-link">
-              <i class="far fa-circle nav-icon"></i> <span>Toko</span>
+              <i class="far fa-circle nav-icon"></i> <span>Suplier</span>
               </a>
             </li>
           <?php endif; ?>
@@ -151,6 +152,7 @@
           <?php endif; ?>
             </ul>
           </li>
+          <?php endif; ?>
 
           <?php if(in_array('viewReports', $user_permission)): ?>
             <li id="reportNav" class="nav-item">

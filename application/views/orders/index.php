@@ -49,15 +49,15 @@
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Bill no</th>
-                <th>Customer Name</th>
-                <th>Customer Phone</th>
-                <th>Date Time</th>
-                <th>Total Products</th>
-                <th>Total Amount</th>
-                <th>Paid status</th>
+                <th>No.Inv</th>
+                <th>Nama</th>
+                <th>Telepon</th>
+                <th>Tanggal Pesan</th>
+                <th>Jml Produk</th>
+                <th>Total Harga</th>
+                <th>Status Bayar</th>
                 <?php if(in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
-                  <th>Action</th>
+                  <th>Aksi</th>
                 <?php endif; ?>
               </tr>
               </thead>

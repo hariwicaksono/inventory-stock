@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="store">Toko</label>
+                  <label for="store">Suplier</label>
                   <select class="form-control select_group" id="store" name="store">
                     <?php foreach ($stores as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
@@ -130,8 +130,8 @@
                 <div class="form-group">
                   <label for="store">Ketersediaan</label>
                   <select class="form-control" id="availability" name="availability">
-                    <option value="1">Yes</option>
-                    <option value="2">No</option>
+                    <option value="1">Ya</option>
+                    <option value="2">Tidak</option>
                   </select>
                 </div>
 

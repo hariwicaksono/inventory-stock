@@ -24,7 +24,7 @@
     <section class="content">
     <div class="container-fluid px-3 pb-3">
       <!-- Small boxes (Stat box) -->
-      <?php if($is_admin == true): ?>
+      <?php if($is_admin == true) { ?>
 
         <div class="row">
           <div class="col-lg-3 col-xs-6">
@@ -78,7 +78,7 @@
               <div class="inner">
                 <h3><?php echo $total_stores ?></h3>
 
-                <p>Total Toko</p>
+                <p>Total Suplier</p>
               </div>
               <div class="icon">
                 <i class="ion ion-android-home"></i>
@@ -89,7 +89,42 @@
           <!-- ./col -->
         </div>
         <!-- /.row -->
-      <?php endif; ?>
+
+      <?php } else { ?>
+        <div class="row">
+          <div class="col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $total_products ?></h3>
+
+                <p>Total Produk</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="<?php echo base_url('products/') ?>" class="small-box-footer">Info lebih lanjut <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+              <div class="inner">
+                <h3><?php echo $total_paid_orders ?></h3>
+
+                <p>Total Pesanan Dibayar</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="<?php echo base_url('orders/') ?>" class="small-box-footer">Info lebih lanjut <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+      </div>
+
+      <?php } ?>
 
     <div class="row">
     <div class="col">

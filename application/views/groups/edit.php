@@ -36,12 +36,16 @@
               <?php echo $this->session->flashdata('error'); ?>
             </div>
           <?php endif; ?>
-
+ 
           <div class="card">
             <form role="form" action="<?php base_url('groups/update') ?>" method="post">
               <div class="card-body">
 
+              <?php if(validation_errors()): ?>
+                <div class="callout callout-danger">
                 <?php echo validation_errors(); ?>
+                </div>
+                <?php endif; ?>
 
                 <div class="form-group">
                   <label for="group_name">Nama Grup</label>
@@ -64,7 +68,7 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Users</td>
+                        <td>Pengguna</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createUser" value="createUser" <?php if($serialize_permission) {
                           if(in_array('createUser', $serialize_permission)) { echo "checked"; } 
                         } ?> ><label for="createUser"></label></div></td>
@@ -85,7 +89,7 @@
                          ?> ><label for="deleteUser"></label</div></td>
                       </tr>
                       <tr>
-                        <td>Groups</td>
+                        <td>Grup</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createGroup" value="createGroup" <?php 
                         if($serialize_permission) {
                           if(in_array('createGroup', $serialize_permission)) { echo "checked"; }  
@@ -108,7 +112,7 @@
                          ?> ><label for="deleteGroup"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Brands</td>
+                        <td>Merek</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createBrand" value="createBrand" <?php if($serialize_permission) {
                           if(in_array('createBrand', $serialize_permission)) { echo "checked"; } 
                         } ?> ><label for="createBrand"></label></div></td>
@@ -123,7 +127,7 @@
                         } ?> ><label for="deleteBrand"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Category</td>
+                        <td>Kategori</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createCategory" value="createCategory" <?php if($serialize_permission) {
                           if(in_array('createCategory', $serialize_permission)) { echo "checked"; } 
                         } ?> ><label for="createCategory"></label></div></td>
@@ -138,7 +142,7 @@
                         } ?> ><label for="deleteCategory"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Stores</td>
+                        <td>Suplier</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createStore" value="createStore" <?php if($serialize_permission) {
                           if(in_array('createStore', $serialize_permission)) { echo "checked"; } 
                         } ?> ><label for="createStore"></label></div></td>
@@ -153,7 +157,7 @@
                         } ?> ><label for="deleteStore"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Attributes</td>
+                        <td>Atribut</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createAttribute" value="createAttribute" <?php if($serialize_permission) {
                           if(in_array('createAttribute', $serialize_permission)) { echo "checked"; } 
                         } ?> ><label for="createAttribute"></label></div></td>
@@ -168,7 +172,7 @@
                         } ?> ><label for="deleteAttribute"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Products</td>
+                        <td>Produk</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createProduct" value="createProduct" <?php if($serialize_permission) {
                           if(in_array('createProduct', $serialize_permission)) { echo "checked"; } 
                         } ?> ><label for="createProduct"></label></div></td>
@@ -183,7 +187,7 @@
                         } ?> ><label for="deleteProduct"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Orders</td>
+                        <td>Pesanan</td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="createOrder" value="createOrder" <?php if($serialize_permission) {
                           if(in_array('createOrder', $serialize_permission)) { echo "checked"; } 
                         } ?> ><label for="createOrder"></label></div></td>
@@ -198,7 +202,7 @@
                         } ?> ><label for="deleteOrder"></label></div></td>
                       </tr>
                       <tr>
-                        <td>Reports</td>
+                        <td>Laporan</td>
                         <td> - </td>
                         <td> - </td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewReports" value="viewReports" <?php if($serialize_permission) {
@@ -207,7 +211,7 @@
                         <td> - </td>
                       </tr>
                       <tr>
-                        <td>Company</td>
+                        <td>Perusahaan</td>
                         <td> - </td>
                         <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateCompany" value="updateCompany" <?php if($serialize_permission) {
                           if(in_array('updateCompany', $serialize_permission)) { echo "checked"; } 
@@ -216,20 +220,20 @@
                         <td> - </td>
                       </tr>
                       <tr>
-                        <td>Profile</td>
+                        <td>Profil</td>
                         <td> - </td>
                         <td> - </td>
-                        <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewProfile" value="viewProfile" <?php if($serialize_permission) {
+                        <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="viewProfil" value="viewProfile" <?php if($serialize_permission) {
                           if(in_array('viewProfile', $serialize_permission)) { echo "checked"; } 
-                        } ?> ><label for="viewProfile"></label></div></td>
+                        } ?> ><label for="viewProfil"></label></div></td>
                         <td> - </td>
                       </tr>
                       <tr>
-                        <td>Setting</td>
+                        <td>Pengaturan</td>
                         <td>-</td>
-                        <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updateSetting" value="updateSetting" <?php if($serialize_permission) {
+                        <td><div class="icheck-primary"><input type="checkbox" name="permission[]" id="updSetting" value="updateSetting" <?php if($serialize_permission) {
                           if(in_array('updateSetting', $serialize_permission)) { echo "checked"; } 
-                        } ?> ><label for="updateSetting"></label></div></td>
+                        } ?> ><label for="updSetting"></label></div></td>
                         <td> - </td>
                         <td> - </td>
                       </tr>

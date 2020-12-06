@@ -56,7 +56,7 @@
                 <th>Nama Produk</th>
                 <th>Harga</th>
                 <th>Stok</th>
-                <th>Toko</th>
+                <th>Suplier</th>
                 <th>Ketersediaan</th>
                 <?php if(in_array('updateProduct', $user_permission) || in_array('deleteProduct', $user_permission)): ?>
                   <th>Aksi</th>

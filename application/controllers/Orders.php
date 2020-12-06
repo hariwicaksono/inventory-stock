@@ -44,7 +44,7 @@ class Orders extends Admin_Controller
 
 			$count_total_item = $this->model_orders->countOrderItem($value['id']);
 			$date = date('d-m-Y', $value['date_time']);
-			$time = date('h:i a', $value['date_time']);
+			$time = date('H:i', $value['date_time']);
 
 			$date_time = $date . ' ' . $time;
 
@@ -285,19 +285,23 @@ class Orders extends Admin_Controller
 			      <div class="col-12">
 			        <h2 class="page-header">
 			          '.$company_info['company_name'].'
-					  <small class="float-right">Tanggal: '.$order_date.'</small>
-			        </h2>
-			      </div>
+					</h2>
+				  </div>
 			      <!-- /.col -->
 			    </div>
 			    <!-- info row -->
-			    <div class="row invoice-info">
-			      
-			      <div class="col-sm-4 invoice-col">
-	
-			        <b>No. Transaksi:</b> '.$order_data['bill_no'].'<br/>
-			        <b>Nama:</b> '.$order_data['customer_name'].'<br/>
-			        <b>Alamat:</b> '.$order_data['customer_address'].' <br />
+			    <div class="row invoice-info mb-2">
+				  <div class="col-9 invoice-col">
+				  <h6 class="page-header">
+					'.$company_info['address'].'<br/>
+					No. Telepon: '.$company_info['phone'].'<br/><br/>
+					Mata Uang: '.$company_info['currency'].'
+					</h6>
+				  </div>
+			      <div class="col-3 invoice-col">
+				  	<b>Tanggal:</b> '.$order_date.'<br/>
+			        <b>No. Invoice:</b> '.$order_data['bill_no'].'<br/>
+			        <b>Nama:</b> '.$order_data['customer_name'].' / '.$order_data['customer_address'].' <br />
 			        <b>Telepon:</b> '.$order_data['customer_phone'].'
 			      </div>
 			      <!-- /.col -->
@@ -306,8 +310,8 @@ class Orders extends Admin_Controller
 
 			    <!-- Table row -->
 			    <div class="row">
-			      <div class="col-xs-12 table-responsive">
-			        <table class="table table-striped">
+			      <div class="col-12 table-responsive">
+			        <table class="table table-striped table-bordered">
 			          <thead>
 			          <tr>
 			            <th>Nama Produk</th>
@@ -339,12 +343,12 @@ class Orders extends Admin_Controller
 
 			    <div class="row">
 			      
-			      <div class="col-xs-6 pull pull-right">
+			      <div class="col-5 ml-auto">
 
 			        <div class="table-responsive">
 			          <table class="table">
 			            <tr>
-			              <th style="width:50%">Jumlah:</th>
+			              <th style="width:40%">Jumlah:</th>
 			              <td>'.$order_data['gross_amount'].'</td>
 			            </tr>';
 

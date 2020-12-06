@@ -54,7 +54,7 @@
                 <?php endif; ?>
 
                 <div class="form-group">
-                  <label class="control-label">Tanggal: <?php echo date('Y-m-d') ?> Jam: <?php echo date('h:i a') ?></label>
+                  <label class="control-label">Tanggal: <?php echo date('Y-m-d') ?> Jam: <?php echo date('H:i') ?></label>
                 </div>
 
                 <div class="row">
@@ -170,8 +170,8 @@
                     <label for="paid_status" class="control-label">Status Bayar</label>
                     
                       <select type="text" class="form-control form-control-sm" id="paid_status" name="paid_status">
-                        <option value="1">Dibayar</option>
-                        <option value="2">Belum dibayar</option>
+                        <option value="1" <?php if($order_data['order']['paid_status'] == 1) { echo "selected='selected'"; } ?>>Dibayar</option>
+                        <option value="2" <?php if($order_data['order']['paid_status'] == 2) { echo "selected='selected'"; } ?>>Belum dibayar</option>
                       </select>
                     
                   </div>
@@ -186,7 +186,7 @@
                 <input type="hidden" name="vat_charge_rate" value="<?php echo $company_data['vat_charge_value'] ?>" autocomplete="off">
                 <button type="submit" class="btn btn-primary">Update Pesanan</button>
                 <a href="<?php echo base_url('orders/') ?>" class="btn btn-warning">Kembali</a>
-                <a target="__blank" href="<?php echo base_url() . 'orders/printDiv/'.$order_data['order']['id'] ?>" class="btn btn-default" ><i class="fas fa-print"></i> Print</a>
+                <a target="__blank" href="<?php echo base_url() . 'orders/printDiv/'.$order_data['order']['id'] ?>" class="btn btn-default" ><i class="fas fa-print"></i> Cetak</a>
               </div>
             </form>
           <!-- /.box-body -->
