@@ -45,7 +45,7 @@
         <div class="card">
           <div class="card-header">
           <?php if(in_array('createCategory', $user_permission)): ?>
-          <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addModal">Tambah Kategori</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#addModal">Tambah Kategori</button>
         <?php endif; ?>
           </div>
           <!-- /.box-header -->
