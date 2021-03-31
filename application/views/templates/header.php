@@ -6,6 +6,7 @@
   <title><?php echo $page_title; ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.png'); ?>" type="image/x-icon"><!-- X -->
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Font Awesome -->  
@@ -68,7 +69,7 @@
   <script src="<?php echo base_url('assets/plugins/fileinput/fileinput.min.js') ?>"></script>
   <script src="<?php echo base_url('assets/plugins/fileinput/themes/fas/theme.min.js') ?>"></script>
 </head>
-<body class="sidebar-mini layout-fixed sidebar-closed sidebar-collapse">
+<body class="sidebar-mini layout-fixed sidebar-collapse">
 <div class="wrapper">
 
   
