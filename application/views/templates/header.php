@@ -68,7 +68,7 @@
   <script src="<?php echo base_url('assets/plugins/fileinput/fileinput.min.js') ?>"></script>
   <script src="<?php echo base_url('assets/plugins/fileinput/themes/fas/theme.min.js') ?>"></script>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="sidebar-mini layout-fixed sidebar-closed sidebar-collapse">
 <div class="wrapper">
 
   
